@@ -232,6 +232,9 @@
 
         if (
           objectA.startX + objectA.width >= objectB.startX &&
+          objectA.startY + objectA.height >= objectB.startY &&
+          objectA.startY <= objectB.startY + objectB.height &&
+          objectA.startX <= objectB.startX + objectB.width &&
           checkCollision === false
         ) {
           alert(
