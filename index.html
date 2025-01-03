@@ -148,6 +148,7 @@
       );
 
       function move(event) {
+        event.preventDefault();
         /*if (event.keyCode) {
             alert(event.keyCode);
           }*/
@@ -174,6 +175,7 @@
       }
 
       function move2(event) {
+        event.preventDefault();
         let x = event.touches[0].clientX;
         let y = event.touches[0].clientY;
 
