@@ -740,7 +740,7 @@ function drawNull() {
 
 function saveGame() {
   localStorage.setItem(localStoragePlayerKey, JSON.stringify(player));
-  alert("Das Spiel wirde gespeichert.");
+  alert("Das Spiel wurde gespeichert.");
 }
 
 /*function action() {
