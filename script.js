@@ -336,22 +336,22 @@ function move2(event) {
   }
 
   if (coordinateY > prevValueY && player.level === 1) {
-    playSecondLevel("down");
+    playFirstLevel("down");
     prevValueY = coordinateY;
   }
 
   if (coordinateX < prevValueX && player.level === 2) {
-    playFirstLevel("right");
+    playSecondLevel("right");
     prevValueX = coordinateX;
   }
 
   if (coordinateX > prevValueX && player.level === 2) {
-    playFirstLevel("left");
+    playSecondLevel("left");
     prevValueX = coordinateX;
   }
 
   if (coordinateY < prevValueY && player.level === 2) {
-    playFirstLevel("up");
+    playSecondLevel("up");
     prevValueY = coordinateY;
   }
 
@@ -736,6 +736,7 @@ function drawNull() {
 
 function saveGame() {
   localStorage.setItem(localStoragePlayerKey, JSON.stringify(player));
+  alert("Das Spiel wirde gespeichert.");
 }
 
 /*function action() {
