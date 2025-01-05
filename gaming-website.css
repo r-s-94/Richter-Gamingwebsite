@@ -263,10 +263,6 @@ li {
   background-color: red;
 }
 
-#canvas {
-  touch-action: none;
-}
-
 .reset-button {
   width: 5rem;
   height: 2rem;
