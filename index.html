@@ -61,10 +61,13 @@
       </section>
 
       <section id="projects" class="mini-game-section">
-        <h1 class="mini-game-headline">Mini-Game Würfelkollision</h1>
-        <p class="mini-game-description-headline">
-          Lass die Würfel kollidieren!.
-        </p>
+        <h1 class="mini-game-headline">Mini-Game</h1>
+        <div class="mini-game-description-headline">
+          Bringe den roten Würfel
+          <div class="red-dice-description"></div>
+          in das Zielgebiet
+          <div class="goal-dice-description"></div>
+        </div>
         <div class="mini-game-description">
           Steuerung
           <ol>
@@ -84,265 +87,23 @@
           id="canvas"
           class="canvas"
           width="800"
-          height="400"
+          height="425"
           style="border: 1px solid black; margin: 1rem 0"
         ></canvas>
-        <button onclick="restGame()" class="reset-button button">Reset</button>
+        <div class="button-div">
+          <button onclick="loadGame()" class="load-button button">
+            Spiel laden
+          </button>
+          <button onclick="saveGame()" class="save-button button">
+            Spiel speichern
+          </button>
+          <button onclick="restGame()" class="reset-button button">
+            Reset
+          </button>
+        </div>
       </section>
     </div>
 
-    <script>
-      const canvas = document.getElementById("canvas");
-      const ctx = canvas.getContext("2d");
-      let timeControl;
-      let checkCollision = false;
-      let prevValueX = 0;
-      let prevValueY = 0;
-
-      const canvasProperties = {
-        startX: 0,
-        startY: 0,
-        endX: 800,
-        endY: 400,
-        color: "white",
-      };
-
-      let objectA = {
-        startX: 100,
-        startY: 150,
-        width: 100,
-        height: 100,
-        color: "red",
-      };
-
-      const objectB = {
-        startX: 500,
-        startY: 150,
-        width: 100,
-        height: 100,
-        color: "black",
-      };
-
-      ctx.fillStyle = canvasProperties.color;
-      ctx.fillRect(
-        canvasProperties.startX,
-        canvasProperties.startY,
-        canvasProperties.endX,
-        canvasProperties.endY
-      );
-
-      ctx.fillStyle = objectA.color;
-      ctx.fillRect(
-        objectA.startX,
-        objectA.startY,
-        objectA.width,
-        objectA.height
-      );
-
-      ctx.fillStyle = objectB.color;
-      ctx.fillRect(
-        objectB.startX,
-        objectB.startY,
-        objectB.width,
-        objectB.height
-      );
-
-      function move(event) {
-        event.preventDefault();
-        /*if (event.keyCode) {
-            alert(event.keyCode);
-          }*/
-
-        /*if (even.keyCode === 13) {
-            draw();
-          }*/
-
-        if (event.keyCode === 37) {
-          timeControl = setInterval(draw("right"), 1);
-        }
-
-        if (event.keyCode === 38) {
-          timeControl = setInterval(draw("up"), 1);
-        }
-
-        if (event.keyCode === 39) {
-          timeControl = setInterval(draw("left"), 1);
-        }
-
-        if (event.keyCode === 40) {
-          timeControl = setInterval(draw("down"), 1);
-        }
-      }
-
-      function move2(event) {
-        event.preventDefault();
-        let x = event.touches[0].clientX;
-        let y = event.touches[0].clientY;
-
-        if (x < prevValueX) {
-          draw("right");
-          prevValueX = x;
-        }
-
-        if (x > prevValueX) {
-          draw("left");
-          prevValueX = x;
-        }
-
-        if (y < prevValueY) {
-          draw("up");
-          prevValueY = y;
-        }
-
-        if (y > prevValueY) {
-          draw("down");
-          prevValueY = y;
-        }
-      }
-
-      function stopMove() {
-        clearInterval(timeControl);
-      }
-
-      function draw(direction) {
-        ctx.fillStyle = canvasProperties.color;
-        ctx.fillRect(
-          canvasProperties.startX,
-          canvasProperties.startY,
-          canvasProperties.endX,
-          canvasProperties.endY
-        );
-
-        ctx.fillStyle = objectB.color;
-        ctx.fillRect(
-          objectB.startX,
-          objectB.startY,
-          objectB.width,
-          objectB.height
-        );
-
-        /*if (
-          objectA.startX > objectB.startX &&
-              objectA.startX < objectB.startX + objectB.width &&
-              objectA.startY > objectB.startY &&
-              objectA.startY < objectB.startY + objectB.height
-          ) {
-            alert("Kolliosion");
-          }*/
-
-        if (
-          objectA.startX + objectA.width >= objectB.startX &&
-          objectA.startY + objectA.height >= objectB.startY &&
-          objectA.startY <= objectB.startY + objectB.height &&
-          objectA.startX <= objectB.startX + objectB.width &&
-          checkCollision === false
-        ) {
-          alert(
-            "Herzlichen Glückwunsch, du hast die Vierecke kollidieren lassen. Das Spiel ist zu Ende."
-          );
-          checkCollision = true;
-        }
-
-        /*if (
-            objectA.startY + objectA.height >= objectB.startX &&
-            checkCollision === false
-          ) {
-            alert(
-              "Herzlichen Glückwunsch, du hast die Vierecke kollidieren lassen. Das Spiel ist zu Ende."
-            );
-           
-            checkCollision = true;
-          }*/
-
-        if (objectA.startX <= 0) {
-          alert("Sie verlassen das Spiel");
-          restGame();
-        }
-
-        if (objectA.startY <= 0) {
-          alert("Sie verlassen das Spiel");
-          restGame();
-        }
-
-        if (objectA.startY + objectA.height >= canvasProperties.endY) {
-          alert("Sie verlassen das Spiel");
-          restGame();
-        }
-
-        if (objectA.startX + objectA.width >= canvasProperties.endX) {
-          alert("Sie verlassen das Spiel");
-          restGame();
-        }
-
-        if (direction === "right") {
-          ctx.fillStyle = objectA.color;
-          ctx.fillRect(
-            (objectA.startX = objectA.startX - 1.5),
-            objectA.startY,
-            objectA.width,
-            objectA.height
-          );
-        }
-
-        if (direction === "up") {
-          ctx.fillStyle = objectA.color;
-          ctx.fillRect(
-            objectA.startX,
-            (objectA.startY = objectA.startY - 1.5),
-            objectA.width,
-            objectA.height
-          );
-        }
-
-        if (direction === "left") {
-          ctx.fillStyle = objectA.color;
-          ctx.fillRect(
-            (objectA.startX = objectA.startX + 1.5),
-            objectA.startY,
-            objectA.width,
-            objectA.height
-          );
-        }
-
-        if (direction === "down") {
-          ctx.fillStyle = objectA.color;
-          ctx.fillRect(
-            objectA.startX,
-            (objectA.startY = objectA.startY + 1.5),
-            objectA.width,
-            objectA.height
-          );
-        }
-      }
-
-      /*if (
-          objectA.startX > objectB.startX &&
-          objectA.startX < objectB.startX + objectB.width &&
-          objectA.startY > objectB.startY &&
-          objectA.startY < objectB.startY + objectB.height
-        ) {
-          alert("Kolliosion");
-        }*/
-
-      /*if (objectA.startX > objectB.startY + objectB.height) {
-          alert();
-        }*/
-
-      function restGame() {
-        ctx.fillStyle = canvasProperties.color;
-        ctx.fillRect(0, 0, innerWidth, innerHeight);
-
-        objectA.startX = 100;
-        objectA.startY = 150;
-
-        ctx.fillStyle = objectA.color;
-        ctx.fillRect(objectA.startX, objectA.startY, 100, 100);
-
-        ctx.fillStyle = objectB.color;
-        ctx.fillRect(500, 150, 100, 100);
-
-        checkCollision = false;
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
