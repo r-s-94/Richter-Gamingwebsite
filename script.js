@@ -320,44 +320,48 @@ function move2(event) {
   let coordinateX = event.touches[0].clientX;
   let coordinateY = event.touches[0].clientY;
 
-  if (coordinateX < prevValueX && player.level === 1) {
-    playFirstLevel("right");
-    prevValueX = coordinateX;
+  if (player.level === 1) {
+    if (coordinateX < prevValueX) {
+      playFirstLevel("right");
+      prevValueX = coordinateX;
+    }
+
+    if (coordinateX > prevValueX) {
+      playFirstLevel("left");
+      prevValueX = coordinateX;
+    }
+
+    if (coordinateY < prevValueY) {
+      playFirstLevel("up");
+      prevValueY = coordinateY;
+    }
+
+    if (coordinateY > prevValueY) {
+      playFirstLevel("down");
+      prevValueY = coordinateY;
+    }
   }
 
-  if (coordinateX > prevValueX && player.level === 1) {
-    playFirstLevel("left");
-    prevValueX = coordinateX;
-  }
+  if (player.level === 2) {
+    if (coordinateX < prevValueX) {
+      playSecondLevel("right");
+      prevValueX = coordinateX;
+    }
 
-  if (coordinateY < prevValueY && player.level === 1) {
-    playFirstLevel("up");
-    prevValueY = coordinateY;
-  }
+    if (coordinateX > prevValueX) {
+      playSecondLevel("left");
+      prevValueX = coordinateX;
+    }
 
-  if (coordinateY > prevValueY && player.level === 1) {
-    playFirstLevel("down");
-    prevValueY = coordinateY;
-  }
+    if (coordinateY < prevValueY) {
+      playSecondLevel("up");
+      prevValueY = coordinateY;
+    }
 
-  if (coordinateX < prevValueX && player.level === 2) {
-    playSecondLevel("right");
-    prevValueX = coordinateX;
-  }
-
-  if (coordinateX > prevValueX && player.level === 2) {
-    playSecondLevel("left");
-    prevValueX = coordinateX;
-  }
-
-  if (coordinateY < prevValueY && player.level === 2) {
-    playSecondLevel("up");
-    prevValueY = coordinateY;
-  }
-
-  if (coordinateY > prevValueY && player.level === 2) {
-    playSecondLevel("down");
-    prevValueY = coordinateY;
+    if (coordinateY > prevValueY) {
+      playSecondLevel("down");
+      prevValueY = coordinateY;
+    }
   }
 }
 
