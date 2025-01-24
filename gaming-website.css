@@ -89,7 +89,14 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f3f5f6;
+  background-image: linear-gradient(
+    to right,
+    #e2e4e7,
+    white,
+    white,
+    white,
+    #e2e4e7
+  );
 }
 
 /*.gaming-website {
@@ -97,8 +104,9 @@ body {
 }*/
 
 .head-section {
-  border: 0.5rem solid #e0e0e0;
-  border-radius: 0.3rem;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
+  background-color: white;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -159,6 +167,8 @@ body {
   font-size: 1.5rem;
   border-radius: 0.2rem;
   line-height: 2rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.2rem;
 }
 
 .name {
@@ -204,13 +214,14 @@ body {
 .mini-game-section {
   margin: 1rem 5rem;
   padding: 3rem 0;
-  border: 0.5rem solid #e0e0e0;
-  border-radius: 0.3rem;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: white;
 }
 
 .mini-game-headline {
@@ -282,9 +293,8 @@ li {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    margin: 2rem 5% 1.5rem 5%;
+    margin: 2rem 5% 5rem 5%;
     padding: 0 0 1rem 0;
-    border-width: 0.5rem;
   }
 
   .welcome-div {
@@ -369,9 +379,8 @@ li {
     align-items: center;
     justify-content: center;
     row-gap: 1rem;
-    margin: 1.5rem 5% 3rem 5%;
-    padding: 2rem 1%;
-    border-width: 0.5rem;
+    margin: 1rem 5% 5rem 5%;
+    padding: 5rem 1%;
   }
 
   .mini-game-headline {
@@ -459,9 +468,8 @@ li {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    margin: 2rem 5% 1.5rem 5%;
+    margin: 2rem 5% 4.5rem 5%;
     padding: 0 0 1rem 0;
-    border-width: 0.5rem;
   }
 
   .welcome-div {
@@ -547,9 +555,8 @@ li {
     align-items: center;
     justify-content: center;
     row-gap: 1rem;
-    margin: 1.5rem 5% 3rem 5%;
-    padding: 2rem 1%;
-    border-width: 0.5rem;
+    margin: 1rem 5% 4.5rem 5%;
+    padding: 4rem 1%;
   }
 
   .mini-game-headline {
@@ -638,9 +645,8 @@ li {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    margin: 1.5rem 5% 1.3rem 5%;
+    margin: 1.5rem 5% 4rem 5%;
     padding: 0 0 1rem 0;
-    border-width: 0.4rem;
   }
 
   .welcome-div {
@@ -726,9 +732,8 @@ li {
     align-items: center;
     justify-content: center;
     row-gap: 1rem;
-    margin: 1.3rem 5% 3rem 5%;
-    padding: 2rem 1%;
-    border-width: 0.4rem;
+    margin: 1rem 5% 4rem 5%;
+    padding: 3rem 1%;
   }
 
   .mini-game-headline {
@@ -817,9 +822,8 @@ li {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    margin: 1rem 3% 1rem 3%;
+    margin: 1rem 3% 3.5rem 3%;
     padding: 0 0 1rem 0;
-    border-width: 0.4rem;
   }
 
   .welcome-div {
@@ -905,9 +909,8 @@ li {
     align-items: center;
     justify-content: center;
     row-gap: 1rem;
-    margin: 1rem 3% 1rem 3%;
-    padding: 1rem 1%;
-    border-width: 0.4rem;
+    margin: 1rem 3% 3.5rem 3%;
+    padding: 3rem 1%;
   }
 
   .mini-game-headline {
@@ -996,9 +999,8 @@ li {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    margin: 1rem 3% 0.7rem 3%;
+    margin: 1rem 3% 2.5rem 3%;
     padding: 0 0 1rem 0;
-    border-width: 0.3rem;
   }
 
   .welcome-div {
@@ -1083,9 +1085,8 @@ li {
     align-items: center;
     justify-content: center;
     row-gap: 1rem;
-    margin: 0.7rem 3% 1rem 3%;
-    padding: 1rem 1%;
-    border-width: 0.3rem;
+    margin: 2.5rem 3%;
+    padding: 2rem 1%;
   }
 
   .mini-game-headline {
@@ -1179,9 +1180,8 @@ li {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    margin: 1rem 3% 0.5rem 3%;
+    margin: 1rem 3% 1.7rem 3%;
     padding: 0 0 1rem 0;
-    border-width: 0.3rem;
   }
 
   .welcome-div {
@@ -1266,9 +1266,8 @@ li {
     align-items: center;
     justify-content: center;
     row-gap: 1rem;
-    margin: 0.5rem 3%;
-    padding: 1rem 1%;
-    border-width: 0.3rem;
+    margin: 1.7rem 3%;
+    padding: 1.5rem 1%;
   }
 
   .mini-game-headline {
