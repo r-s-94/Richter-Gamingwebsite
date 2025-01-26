@@ -1,3 +1,390 @@
+//  Schere Stein Papier Spiel
+
+const computerChoiceArray = ["Schere", "Stein", "Papier"];
+const gameCharacterArray = ["Schere", "Stein", "Papier"];
+const gameCharacterIMGArray = [
+  "./assets/Schere.png",
+  "./assets/Stein.png",
+  "./assets/Papier.png",
+];
+const questionDiv = document.getElementsByClassName("question-div")[0];
+const startGameDiv = document.getElementsByClassName("start-game-div")[0];
+const buttonOrVoiceDiv = document.getElementsByClassName(
+  "button-or-voice-div"
+)[0];
+const scissorsStonePaperButtonDiv = document.getElementsByClassName(
+  "scissors-stone-paper-button-div"
+)[0];
+const voiceDiv = document.getElementsByClassName("voice-div")[0];
+const gamePlayAgainQuestionDiv = document.getElementsByClassName(
+  "game-play-again-question-div"
+)[0];
+const gamePlayAgainQuestion = document.getElementsByClassName(
+  "game-play-again-question"
+)[0];
+const gamePlayAgainStandardQuestion = document.getElementsByClassName(
+  "game-play-again-standard-question"
+)[0];
+const gamePlayAgainQuestionButtonDiv = document.getElementsByClassName(
+  "game-play-again-question-button-div"
+)[0];
+const evectDiv = document.getElementsByClassName("evect-div")[0];
+const gameRoundDiv = document.getElementsByClassName("game-round-div")[0];
+const countGameRoundStatus = document.getElementsByClassName(
+  "count-game-round-status"
+)[0];
+const sequenceDiv = document.getElementsByClassName("sequence-div")[0];
+const sessionWinnerDiv =
+  document.getElementsByClassName("session-winner-div")[0];
+const sessionWinner = document.getElementsByClassName("session-winner")[0];
+
+const recordingStatus = document.getElementsByClassName("recording-status")[0];
+const playerVoiceChoice = document.getElementsByClassName(
+  "player-voice-choice"
+)[0];
+const showPlayerScore = document.getElementById("player-score");
+const showComputerScore = document.getElementById("computer-score");
+const sessionPlayerImg = document.getElementsByClassName("player-img")[0];
+const sessionComputerImg = document.getElementsByClassName("computer-img")[0];
+
+let countGameRound = 0;
+let controlTimeOut;
+let randomComputerChoice;
+
+let computerObject = {
+  sessionWinnerName: "",
+  score: 0,
+  choice: "",
+};
+
+let playerObject = {
+  sessionWinnerName: "",
+  score: 0,
+  choice: "",
+};
+
+showGameWithWhat();
+
+function showGameWithWhat() {
+  evectDiv.classList.add("hidden");
+  gameRoundDiv.classList.add("hidden");
+  sequenceDiv.classList.add("hidden");
+  gamePlayAgainQuestionDiv.classList.add("hidden");
+  gamePlayAgainQuestionButtonDiv.classList.add("hidden");
+  sessionWinnerDiv.classList.add("hidden");
+  buttonOrVoiceDiv.classList.add("hidden");
+  scissorsStonePaperButtonDiv.classList.add("hidden");
+  voiceDiv.classList.add("hidden");
+}
+
+function showControlOptions() {
+  startGameDiv.classList.add("hidden");
+  buttonOrVoiceDiv.classList.remove("hidden");
+}
+
+function buttonOrVoiceChoice(buttonOrVoice) {
+  buttonOrVoiceDiv.classList.add("hidden");
+  gamePlayAgainQuestionButtonDiv.classList.add("hidden");
+
+  if (buttonOrVoice === "button") {
+    scissorsStonePaperButtonDiv.classList.remove("hidden");
+    questionDiv.classList.add("hidden");
+  } else {
+    voiceDiv.classList.remove("hidden");
+    questionDiv.classList.add("hidden");
+  }
+}
+
+function startRecognition() {
+  const speechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (speechRecognition) {
+    recognition = new webkitSpeechRecognition();
+    console.log(recognition);
+    recognition.lang = "de-DE";
+    recognition.interimResults = false;
+    recognition.start();
+
+    recognition.onstart = () => {
+      console.log("Die Spracherkennung wurde gestartet.");
+      recordingStatus.innerHTML = "Spracherkennung gestartet, bitte sprechen.";
+    };
+
+    recognition.onend = () => {
+      console.log("Spracherkennung beendet.");
+      recordingStatus.innerHTML = "Spracherkennung beendet.";
+    };
+
+    recognition.onresult = (event) => {
+      transcript = event.results[0][0].transcript;
+      console.log("Erkannte Sprache:", transcript);
+      if (
+        transcript === "Schere" ||
+        transcript === "Stein" ||
+        transcript === "Papier"
+      ) {
+        playerVoiceChoice.innerHTML = transcript;
+        playerMakeAChoice(transcript);
+      } else {
+        playerVoiceChoice.innerHTML =
+          "Deine Spracheingabe bitte nochmal wiederholen.";
+      }
+    };
+
+    recognition.onerror = (event) => {
+      console.log("Fehler bei derSprachaufnahme:", event.console.error);
+    };
+  } else {
+    console.error(
+      "Spracherkennungs-API wird von diesem Browser nicht unterstützt."
+    );
+  }
+}
+
+function playerMakeAChoice(choice) {
+  playerObject.choice = choice;
+
+  computerChoice();
+}
+
+function computerChoice() {
+  randomComputerChoice =
+    computerChoiceArray[Math.floor(Math.random() * computerChoiceArray.length)];
+
+  computerObject.choice = randomComputerChoice;
+
+  nextGameRound();
+}
+
+function nextGameRound() {
+  countGameRound = countGameRound + 1;
+  countGameRoundStatus.innerHTML = countGameRound;
+
+  setTimeout(showNextRound, 1000);
+}
+
+function showNextRound() {
+  evectDiv.classList.remove("hidden");
+  gameRoundDiv.classList.remove("hidden");
+  setTimeout(closeNextRound, 2000);
+}
+
+function closeNextRound() {
+  gameRoundDiv.classList.add("hidden");
+  showSequense();
+}
+
+function showSequense() {
+  sequenceDiv.classList.remove("hidden");
+
+  setTimeout(gameDuell, 2300);
+}
+
+function gameDuell() {
+  sequenceDiv.classList.add("hidden");
+  evectDiv.classList.add("hidden");
+
+  showPlayerCharater();
+  showComputerCharacter();
+
+  if (
+    playerObject.choice === "Schere" &&
+    computerObject.choice === "Stein" // "Stein"
+  ) {
+    computerObject.sessionWinnerName = "computer";
+    setTimeout(showSessionWinner, 3000);
+  }
+
+  if (
+    playerObject.choice === "Schere" &&
+    computerObject.choice === "Papier" // "Papier"
+  ) {
+    playerObject.sessionWinnerName = "player";
+    setTimeout(showSessionWinner, 3000);
+  }
+
+  if (
+    playerObject.choice === "Stein" &&
+    computerObject.choice === "Schere" // "Schere"
+  ) {
+    playerObject.sessionWinnerName = "player";
+    setTimeout(showSessionWinner, 3000);
+  }
+
+  if (
+    playerObject.choice === "Stein" &&
+    computerObject.choice === "Papier" // "Papier"
+  ) {
+    computerObject.sessionWinnerName = "computer";
+    setTimeout(showSessionWinner, 3000);
+  }
+
+  if (
+    playerObject.choice === "Papier" &&
+    computerObject.choice === "Stein" // "Stein"
+  ) {
+    playerObject.sessionWinnerName = "player";
+    setTimeout(showSessionWinner, 3000);
+  }
+
+  if (
+    playerObject.choice === "Papier" &&
+    computerObject.choice === "Schere" // "Schere"
+  ) {
+    computerObject.sessionWinnerName = "computer";
+    setTimeout(showSessionWinner, 3000);
+  }
+
+  if (playerObject.choice === computerObject.choice) {
+    setTimeout(equalChoice, 2000);
+  }
+}
+
+function showSessionWinner() {
+  const sessionPlayerImg = document.getElementsByClassName("player-img")[0];
+  sessionPlayerImg.remove();
+
+  const sessionComputerImg = document.getElementsByClassName("computer-img")[0];
+  sessionComputerImg.remove();
+
+  if (playerObject.sessionWinnerName === "player") {
+    playerObject.score = playerObject.score + 1;
+    showPlayerScore.innerHTML = playerObject.score;
+
+    if (playerObject.score === 3) {
+      clearTimeout(controlTimeOut);
+      gamePlayAgainQuestion.innerHTML =
+        "Herzlichen Glückwunsch du hast das Spiel Gewonnen.";
+
+      setTimeout(showGamePlayAgainDiv, 2000);
+    } else {
+      sessionWinner.innerHTML = "Dieses Duell hast du gewonnen.";
+      evectDiv.classList.remove("hidden");
+      sessionWinnerDiv.classList.remove("hidden");
+      setTimeout(backToGame, 3000);
+    }
+  } else {
+    computerObject.score = computerObject.score + 1;
+    showComputerScore.innerHTML = computerObject.score;
+
+    if (computerObject.score === 3) {
+      clearTimeout(controlTimeOut);
+      gamePlayAgainQuestion.innerHTML = "Der Computer hat das Spiel Gewonnen.";
+
+      setTimeout(showGamePlayAgainDiv, 2000);
+    } else {
+      sessionWinner.innerHTML = "Dieses Duell hat der Computer gewonnen.";
+      evectDiv.classList.remove("hidden");
+      sessionWinnerDiv.classList.remove("hidden");
+      setTimeout(backToGame, 3000);
+    }
+  }
+}
+
+function equalChoice() {
+  const sessionPlayerImg = document.getElementsByClassName("player-img")[0];
+  sessionPlayerImg.remove();
+
+  const sessionComputerImg = document.getElementsByClassName("computer-img")[0];
+  sessionComputerImg.remove();
+
+  sessionWinner.innerHTML = "Unentschieden. Dieses Duell hat niemand gewonnen.";
+
+  sessionWinnerDiv.classList.remove("hidden");
+  evectDiv.classList.remove("hidden");
+  setTimeout(backToGame, 3000);
+}
+
+function backToGame() {
+  playerVoiceChoice.innerHTML = "";
+
+  playerObject.sessionWinnerName = "";
+  playerObject.choice = "";
+
+  computerObject.sessionWinnerName = "";
+  computerObject.choice = "";
+
+  sessionWinner.innerHTML = "";
+  sessionWinnerDiv.classList.add("hidden");
+  evectDiv.classList.add("hidden");
+}
+
+function showGamePlayAgainDiv() {
+  gamePlayAgainStandardQuestion.innerHTML =
+    "Möchtest du das Spiel weiter spielen?";
+  scissorsStonePaperButtonDiv.classList.add("hidden");
+  voiceDiv.classList.add("hidden");
+  questionDiv.classList.remove("hidden");
+  gamePlayAgainQuestionDiv.classList.remove("hidden");
+  gamePlayAgainQuestionButtonDiv.classList.remove("hidden");
+}
+
+function playAgain(answer) {
+  if (answer === "ja") {
+    resetGame();
+    gamePlayAgainQuestionButtonDiv.classList.add("hidden");
+    gamePlayAgainQuestionDiv.classList.add("hidden");
+    buttonOrVoiceDiv.classList.remove("hidden");
+  } else {
+    gamePlayAgainQuestion.innerHTML = "Das Spiel ist zu Ende.";
+    gamePlayAgainStandardQuestion.innerHTML = "";
+    gamePlayAgainQuestionButtonDiv.classList.add("hidden");
+  }
+}
+
+function showPlayerCharater() {
+  for (let index = 0; index < gameCharacterArray.length; index++) {
+    if (playerObject.choice === gameCharacterArray[index]) {
+      const player = document.getElementsByClassName("player")[0];
+      const imgEl = document.createElement("img");
+      imgEl.setAttribute("src", gameCharacterIMGArray[index]);
+      imgEl.setAttribute("class", "player-img img-properties");
+      player.appendChild(imgEl);
+
+      if (gameCharacterArray[index] === gameCharacterArray[0]) {
+        document
+          .getElementsByClassName("player-img")[0]
+          .classList.add("turn-around-scissors-img");
+      }
+    }
+  }
+}
+
+function showComputerCharacter() {
+  for (let index = 0; index < gameCharacterArray.length; index++) {
+    if (randomComputerChoice === gameCharacterArray[index]) {
+      const player = document.getElementsByClassName("computer")[0];
+      const imgEl = document.createElement("img");
+      imgEl.setAttribute("src", gameCharacterIMGArray[index]);
+      imgEl.setAttribute("class", "computer-img img-properties");
+      player.appendChild(imgEl);
+    }
+  }
+}
+
+function resetGame() {
+  computerObject = {
+    sessionWinnerName: "",
+    score: 0,
+    choice: "",
+  };
+
+  showComputerScore.innerHTML = computerObject.score;
+
+  playerObject = {
+    sessionWinnerName: "",
+    score: 0,
+    choice: "",
+  };
+
+  countGameRound = 0;
+
+  showPlayerScore.innerHTML = playerObject.score;
+  playerVoiceChoice.innerHTML = "";
+}
+
+//  Würfellabyrinth
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const localStoragePlayerKey = "playerStatus";

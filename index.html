@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="gaming-website.css" />
+    <link rel="stylesheet" href="responsive.css" />
   </head>
   <body onkeydown="move(event)" onkeyup="stopMove()">
     <div class="gaming-website">
@@ -57,6 +58,167 @@
           </div>
 
           <img src="./assets/Developer-IMG.jpg" alt="" class="developer-img" />
+        </div>
+      </section>
+
+      <section class="rock-paper-scissors-game-section">
+        <div class="game-headline-div">
+          <h1 class="game-headline-text">Schere</h1>
+          <h1 class="game-headline-text">Stein</h1>
+          <h1 class="game-headline-text">Papier</h1>
+          <h1 class="game-headline-text">Spiel</h1>
+        </div>
+
+        <h3 class="game-note-headline">
+          Sprachsteuerung funktioniert nur bei Chrome
+        </h3>
+
+        <div class="evect-div">
+          <div class="game-round-div">
+            <p class="game-round">
+              Runde: <span class="count-game-round-status">0</span>
+            </p>
+          </div>
+
+          <div class="sequence-div">
+            <p class="mini-headline">Schere Stein Papier</p>
+            <div class="you-you-div">
+              <p>DU</p>
+              <p>DU</p>
+              <p>DU</p>
+            </div>
+            <p class="focus-word">DUELL</p>
+          </div>
+
+          <div class="session-winner-div">
+            <p class="session-winner"></p>
+          </div>
+        </div>
+
+        <div class="question-div">
+          <div class="start-game-div">
+            <button
+              onclick="showControlOptions()"
+              class="start-game-button button"
+            >
+              Spiel starten
+            </button>
+          </div>
+
+          <div class="button-or-voice-div">
+            <h3>
+              Wie willst du das Spiel steuern mit Buttons oder mit Sprache
+            </h3>
+            <div class="button-and-voice-div">
+              <button
+                onclick="buttonOrVoiceChoice('button')"
+                class="control-with-buttons button"
+              >
+                Buttons
+              </button>
+              <button
+                onclick="buttonOrVoiceChoice('voice')"
+                class="control-with-voice button"
+              >
+                Spracherkennung
+              </button>
+            </div>
+          </div>
+
+          <div class="game-play-again-question-div">
+            <p class="game-play-again-question"></p>
+            <p class="game-play-again-standard-question"></p>
+            <div class="game-play-again-question-button-div">
+              <button
+                onclick="playAgain('ja')"
+                class="game-play-again-yes-button button"
+              >
+                Ja
+              </button>
+              <button
+                onclick="playAgain('nein')"
+                class="game-play-again-no-button button"
+              >
+                Nein
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="playing-field">
+          <div class="player">
+            <span class="player-headline">Spieler</span>
+            <span class="player-text"
+              >Punkte: <span id="player-score">0</span>
+            </span>
+          </div>
+          <img src="./assets/vs-img.png" class="vs" alt="" />
+          <div class="computer">
+            <span class="computer-headline">Computer</span>
+            <span class="computer-text"
+              >Punkte: <span id="computer-score">0</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="control-board-div">
+          <div class="scissors-stone-paper-button-div">
+            <button
+              onclick="playerMakeAChoice('Schere')"
+              class="player-make-a-choice-scissors-button button"
+            >
+              <img
+                src="./assets/Schere.png"
+                class="control-scissors-img"
+                alt=""
+              />
+            </button>
+            <button
+              onclick="playerMakeAChoice('Stein')"
+              class="player-make-a-choice-stone-button button"
+            >
+              <img src="./assets/Stein.png" class="control-stone-img" alt="" />
+            </button>
+            <button
+              onclick="playerMakeAChoice('Papier')"
+              class="player-make-a-choice-paper-button button"
+            >
+              <img src="./assets/Papier.png" class="control-paper-img" alt="" />
+            </button>
+          </div>
+
+          <div class="voice-div">
+            <p class="voice-note">
+              Bei der Spracheingabe bitte Klar und deutlich sprechen.
+            </p>
+            <div>
+              <span class="player-voice-choice"></span>
+              <span class="selected"> :ausgewählt</span>
+            </div>
+
+            <span class="recording-status"></span>
+            <button
+              onclick="startRecognition()"
+              class="start-recognition-button button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="microphone"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
+                />
+              </svg>
+
+              Aufnahme starten
+            </button>
+          </div>
         </div>
       </section>
 

@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Press+Start+2P&family=Rubik+Iso&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 /*$font-family-art1: "Orbitron", sans-serif;
 $font-family-art2: "Roboto", sans-serif;
@@ -207,6 +209,384 @@ body {
   border: 0.3rem outset #e0e0e0;
 }
 
+/*  Schere Stein Papier */
+
+.rock-paper-scissors-game-section {
+  background-image: url(./assets/minecraft-669310_1920.jpg);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
+  margin: 1rem 5rem;
+  padding: 3rem 0;
+}
+
+.game-headline-div {
+  margin: 2rem auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  column-gap: 3rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  border-top-color: red;
+  border-left-color: green;
+  border-right-color: blue;
+  border-bottom-color: yellow;
+  border-radius: 0.2rem;
+  width: 80rem;
+  height: 7rem;
+}
+
+.game-headline-text {
+  font-family: "Press Start 2P", serif;
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+}
+
+.game-note-headline {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.evect-div {
+  position: absolute;
+  width: 62%;
+  height: 46vh;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.2rem;
+}
+
+.game-round {
+  font-size: 1.7rem;
+}
+
+.count-game-round-status {
+  font-size: 1.8rem;
+}
+
+.session-winner {
+  font-size: 1.5rem;
+}
+
+.sequence-div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 0.2rem;
+}
+
+.mini-headline {
+  font-size: 1.5rem;
+}
+
+.you-you-div {
+  font-family: "Alamendra", serif;
+  font-size: 1.3rem;
+}
+
+.focus-word {
+  font-family: "Alamendra", serif;
+  font-size: 2.7rem;
+}
+
+.question-div {
+  position: absolute;
+  width: 62%;
+  height: 46vh;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.start-game-div,
+.game-round-div {
+  width: 75%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.2rem;
+}
+
+.start-game-button {
+  font-size: 0.9rem;
+  width: 7rem;
+  height: 1.7rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  border-top-color: red;
+  border-left-color: green;
+  border-right-color: blue;
+  border-bottom-color: yellow;
+  border-radius: 0.2rem;
+}
+
+.button-or-voice-div,
+.game-play-again-question-div {
+  width: 75%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 0.2rem;
+}
+
+.button-and-voice-div,
+.game-play-again-question-button-div,
+.you-you-div {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.control-with-buttons {
+  font-size: 0.9rem;
+  width: 5rem;
+  height: 1.7rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  border-top-color: red;
+  border-left-color: green;
+  border-right-color: blue;
+  border-bottom-color: yellow;
+  border-radius: 0.2rem;
+}
+
+.control-with-voice {
+  font-size: 0.9rem;
+  width: 9rem;
+  height: 1.7rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  border-top-color: red;
+  border-left-color: green;
+  border-right-color: blue;
+  border-bottom-color: yellow;
+  border-radius: 0.2rem;
+}
+
+.game-play-again-question,
+.game-play-again-standard-question {
+  font-size: 1.5rem;
+}
+
+.game-play-again-yes-button,
+.game-play-again-no-button {
+  font-size: 0.9rem;
+  width: 5rem;
+  height: 1.5rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  border-top-color: red;
+  border-left-color: green;
+  border-right-color: blue;
+  border-bottom-color: yellow;
+  border-radius: 0.2rem;
+}
+
+.playing-field {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 60%;
+  height: 45vh;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.2rem;
+}
+
+.player,
+.computer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 25%;
+  height: 90%;
+}
+
+.player-headline,
+.computer-headline {
+  font-size: 1.6rem;
+}
+
+.player-text,
+.computer-text {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+#player-score,
+#computer-score {
+  font-size: 1.5rem;
+}
+
+.player-img,
+.computer-img {
+  margin-top: 3rem;
+}
+
+.vs {
+  width: auto;
+  height: 7rem;
+}
+
+.control-board-div {
+  width: 50%;
+  height: 13rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 0.2rem solid #dbdbdb;
+  border-radius: 0.2rem;
+}
+
+.scissors-stone-paper-button-div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3rem;
+}
+
+.player-make-a-choice-scissors-button {
+  /*font-size: 0.9rem;*/
+  width: 13rem;
+  height: 9rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  border-top-color: red;
+  border-left-color: green;
+  border-right-color: blue;
+  border-bottom-color: yellow;
+  border-radius: 0.2rem;
+}
+
+.control-scissors-img {
+  width: 10rem;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.1rem;
+}
+
+.player-make-a-choice-stone-button {
+  /*font-size: 0.9rem;*/
+  width: 13rem;
+  height: 9rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  border-top-color: red;
+  border-left-color: green;
+  border-right-color: blue;
+  border-bottom-color: yellow;
+  border-radius: 0.2rem;
+}
+
+.control-stone-img {
+  width: 10rem;
+  height: auto;
+  object-fit: cover;
+}
+
+.player-make-a-choice-paper-button {
+  /*font-size: 0.9rem;*/
+  width: 13rem;
+  height: 9rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  border-top-color: red;
+  border-left-color: green;
+  border-right-color: blue;
+  border-bottom-color: yellow;
+  border-radius: 0.2rem;
+}
+
+.control-paper-img {
+  width: 6rem;
+  height: auto;
+  object-fit: cover;
+}
+
+.voice-div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 0.5rem;
+}
+
+.voice-note {
+  font-size: 1.5rem;
+}
+
+.player-voice-choice {
+  font-size: 1.5rem;
+}
+
+.selected {
+  font-size: 1.5rem;
+}
+
+.start-recognition-button {
+  font-size: 1rem;
+  width: 11rem;
+  height: 1.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  border-top-color: red;
+  border-left-color: green;
+  border-right-color: blue;
+  border-bottom-color: yellow;
+  border-radius: 0.2rem;
+}
+
+.microphone {
+  width: 1rem;
+}
+
+.img-properties {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.turn-around-scissors-img {
+  transform: rotateZ(180deg);
+}
+
+.hidden {
+  display: none;
+}
+
+/*  Würfellabyrinth */
+
 .mini-game-section {
   margin: 1rem 5rem;
   padding: 3rem 0;
@@ -282,1071 +662,4 @@ li {
 
 .button:hover {
   cursor: pointer;
-}
-
-@media screen and (min-width: 1700px) {
-  .head-section {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin: 2rem 5% 5rem 5%;
-    padding: 0 0 1rem 0;
-  }
-
-  .welcome-div {
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo {
-    margin: 0 0 0 5%;
-    width: 8rem;
-    border: 1px solid white;
-    position: none;
-  }
-
-  .headline {
-    width: 100%;
-    font-size: 2.5rem;
-    padding: 7%;
-    margin: 0 auto;
-  }
-
-  .decoration-img {
-    margin: 0 5% 0 0;
-    width: auto;
-    height: 7rem;
-    border-radius: 50%;
-    position: none;
-  }
-
-  .developer-div {
-    display: flex;
-    align-items: center;
-    padding: 1rem 0;
-  }
-
-  .text-and-link-div {
-    width: 90%;
-    max-width: 35rem;
-    margin: 0 0 0 15%;
-    padding: 0;
-  }
-
-  .text {
-    font-size: 1.3rem;
-    padding: 2.5rem 7%;
-    line-height: 2rem;
-  }
-
-  .name {
-    font-size: 1.7rem;
-  }
-
-  .titel {
-    font-size: 1.7rem;
-  }
-
-  .developer-button {
-    font-size: 1rem;
-    width: 11.5rem;
-    height: 2.2rem;
-    margin: 0;
-  }
-
-  .icon {
-    width: 1.4rem;
-    height: auto;
-    margin-left: 0.3rem;
-  }
-
-  .developer-img {
-    margin: 1rem 0 0 7%;
-    width: 15rem;
-    height: auto;
-    border-width: 0.5rem;
-  }
-
-  .mini-game-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 1rem;
-    margin: 1rem 5% 5rem 5%;
-    padding: 5rem 1%;
-  }
-
-  .mini-game-headline {
-    font-size: 2rem;
-    padding: 0 3%;
-  }
-
-  .mini-game-description-headline {
-    font-size: 1.7rem;
-    margin-left: 0;
-  }
-
-  .red-dice-description {
-    width: 25px;
-    height: 25px;
-    background-color: red;
-  }
-
-  .goal-dice-description {
-    width: 24px;
-    height: 25px;
-    background-color: white;
-    border: 1px solid black;
-  }
-
-  .mini-game-description {
-    font-size: 1.5rem;
-    margin: 0 1%;
-  }
-
-  ol {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    padding-top: 0.5rem;
-  }
-
-  li {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-  }
-
-  .red-dice {
-    width: 25px;
-    height: 25px;
-    background-color: red;
-  }
-
-  .canvas {
-    width: 95%;
-    height: 30rem;
-  }
-
-  .button-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem auto;
-    column-gap: 2.5rem;
-  }
-
-  .load-button {
-    width: 12rem;
-    height: 2.3rem;
-    font-size: 1.3rem;
-  }
-
-  .save-button {
-    width: 12rem;
-    height: 2.3rem;
-    font-size: 1.3rem;
-  }
-
-  .reset-button {
-    width: 12rem;
-    height: 2.3rem;
-    font-size: 1.3rem;
-  }
-}
-
-@media screen and (max-width: 1700px) {
-  .head-section {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin: 2rem 5% 4.5rem 5%;
-    padding: 0 0 1rem 0;
-  }
-
-  .welcome-div {
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo {
-    margin: 12rem 0 0 -70%;
-    width: 8rem;
-    border: 1px solid white;
-    position: absolute;
-  }
-
-  .headline {
-    width: 100%;
-    font-size: 2.5rem;
-    padding: 7%;
-    margin: 0 auto 5.5rem auto;
-  }
-
-  .decoration-img {
-    margin: 12rem -65% 0 0;
-    width: auto;
-    height: 7rem;
-    border-radius: 50%;
-    position: absolute;
-  }
-
-  .developer-div {
-    display: flex;
-
-    align-items: center;
-    padding: 1rem 0;
-  }
-
-  .text-and-link-div {
-    width: 90%;
-    max-width: 30rem;
-    margin: 0 0 0 10%;
-    padding: 0;
-  }
-
-  .text {
-    font-size: 1.2rem;
-    padding: 2.5rem 7%;
-    line-height: 2rem;
-  }
-
-  .name {
-    font-size: 1.5rem;
-  }
-
-  .titel {
-    font-size: 1.5rem;
-  }
-
-  .developer-button {
-    font-size: 1rem;
-    width: 11.5rem;
-    height: 2.2rem;
-    margin: 0;
-  }
-
-  .icon {
-    width: 1.4rem;
-    height: auto;
-    margin-left: 0.3rem;
-  }
-
-  .developer-img {
-    margin: 1rem 0 0 7%;
-    width: 14rem;
-    height: auto;
-    border-width: 0.4rem;
-  }
-
-  .mini-game-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 1rem;
-    margin: 1rem 5% 4.5rem 5%;
-    padding: 4rem 1%;
-  }
-
-  .mini-game-headline {
-    font-size: 2rem;
-    padding: 0 3%;
-  }
-
-  .mini-game-description-headline {
-    font-size: 1.7rem;
-    margin-left: 0;
-  }
-
-  .red-dice-description {
-    width: 23px;
-    height: 23px;
-    background-color: red;
-  }
-
-  .goal-dice-description {
-    width: 22px;
-    height: 22px;
-    background-color: white;
-    border: 1px solid black;
-  }
-
-  .mini-game-description {
-    font-size: 1.5rem;
-    margin: 0 1%;
-  }
-
-  ol {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    padding-top: 0.5rem;
-  }
-
-  li {
-    display: flex;
-
-    align-items: center;
-    justify-content: left;
-  }
-
-  .red-dice {
-    width: 23px;
-    height: 23px;
-    background-color: red;
-  }
-
-  .canvas {
-    width: 95%;
-    height: 25rem;
-  }
-
-  .button-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem auto;
-    column-gap: 2rem;
-  }
-
-  .load-button {
-    width: 12rem;
-    height: 2.3rem;
-    font-size: 1.3rem;
-  }
-
-  .save-button {
-    width: 12rem;
-    height: 2.3rem;
-    font-size: 1.3rem;
-  }
-
-  .reset-button {
-    width: 12rem;
-    height: 2.3rem;
-    font-size: 1.3rem;
-  }
-}
-
-@media screen and (max-width: 1400px) {
-  .head-section {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin: 1.5rem 5% 4rem 5%;
-    padding: 0 0 1rem 0;
-  }
-
-  .welcome-div {
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo {
-    margin: 12rem 0 0 -60%;
-    width: 7rem;
-    border: 1px solid white;
-    position: absolute;
-  }
-
-  .headline {
-    width: 100%;
-    font-size: 2.3rem;
-    padding: 7%;
-    margin: 0 auto 5.5rem auto;
-  }
-
-  .decoration-img {
-    margin: 12rem -60% 0 0;
-    width: auto;
-    height: 6rem;
-    border-radius: 50%;
-    position: absolute;
-  }
-
-  .developer-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 1rem;
-    padding: 1rem 0;
-  }
-
-  .text-and-link-div {
-    width: 90%;
-    margin: 0 0 0 0;
-    padding: 0;
-  }
-
-  .text {
-    font-size: 1.1rem;
-    padding: 2rem 7%;
-    line-height: 1.7rem;
-  }
-
-  .name {
-    font-size: 1.4rem;
-  }
-
-  .titel {
-    font-size: 1.4rem;
-  }
-
-  .developer-button {
-    font-size: 1rem;
-    width: 11.5rem;
-    height: 2.2rem;
-    margin: 0;
-  }
-
-  .icon {
-    width: 1.4rem;
-    height: auto;
-    margin-left: 0.3rem;
-  }
-
-  .developer-img {
-    margin: 1rem 0 0 0;
-    width: 16rem;
-    height: auto;
-    border-width: 0.4rem;
-  }
-
-  .mini-game-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 1rem;
-    margin: 1rem 5% 4rem 5%;
-    padding: 3rem 1%;
-  }
-
-  .mini-game-headline {
-    font-size: 1.7rem;
-    padding: 0 3%;
-  }
-
-  .mini-game-description-headline {
-    font-size: 1.5rem;
-    margin-left: 0;
-  }
-
-  .red-dice-description {
-    width: 20px;
-    height: 20px;
-    background-color: red;
-  }
-
-  .goal-dice-description {
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border: 1px solid black;
-  }
-
-  .mini-game-description {
-    font-size: 1.3rem;
-    margin: 0 1%;
-  }
-
-  ol {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    padding-top: 0.5rem;
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-  }
-
-  .red-dice {
-    width: 20px;
-    height: 20px;
-    background-color: red;
-  }
-
-  .canvas {
-    width: 95%;
-    height: 20rem;
-  }
-
-  .button-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem auto;
-    column-gap: 1.5rem;
-  }
-
-  .load-button {
-    width: 11rem;
-    height: 2.1rem;
-    font-size: 1.2rem;
-  }
-
-  .save-button {
-    width: 11rem;
-    height: 2.1rem;
-    font-size: 1.2rem;
-  }
-
-  .reset-button {
-    width: 11rem;
-    height: 2.1rem;
-    font-size: 1.2rem;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .head-section {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin: 1rem 3% 3.5rem 3%;
-    padding: 0 0 1rem 0;
-  }
-
-  .welcome-div {
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo {
-    margin: 12rem 0 0 -60%;
-    width: 6rem;
-    border: 1px solid white;
-    position: absolute;
-  }
-
-  .headline {
-    width: 100%;
-    font-size: 2rem;
-    padding: 7%;
-    margin: 0 auto 5.5rem auto;
-  }
-
-  .decoration-img {
-    margin: 12rem -60% 0 0;
-    width: auto;
-    height: 5rem;
-    border-radius: 50%;
-    position: absolute;
-  }
-
-  .developer-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 1rem;
-    padding: 1rem 0;
-  }
-
-  .text-and-link-div {
-    width: 90%;
-    margin: 0 0 0 0;
-    padding: 0 auto;
-  }
-
-  .text {
-    font-size: 1rem;
-    padding: 0.5rem 7%;
-    line-height: 1.5rem;
-  }
-
-  .name {
-    font-size: 1.2rem;
-  }
-
-  .titel {
-    font-size: 1.2rem;
-  }
-
-  .developer-button {
-    font-size: 1rem;
-    width: 11rem;
-    height: 2.2rem;
-    margin: 0;
-  }
-
-  .icon {
-    width: 1.3rem;
-    height: auto;
-    margin-left: 0.3rem;
-  }
-
-  .developer-img {
-    margin: 1rem 0 0 0;
-    width: 15rem;
-    height: auto;
-    border-width: 0.4rem;
-  }
-
-  .mini-game-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 1rem;
-    margin: 1rem 3% 3.5rem 3%;
-    padding: 3rem 1%;
-  }
-
-  .mini-game-headline {
-    font-size: 1.5rem;
-    padding: 0 3%;
-  }
-
-  .mini-game-description-headline {
-    font-size: 1.3rem;
-    margin-left: 0;
-  }
-
-  .red-dice-description {
-    width: 18px;
-    height: 18px;
-    background-color: red;
-  }
-
-  .goal-dice-description {
-    width: 17px;
-    height: 17px;
-    background-color: white;
-    border: 1px solid black;
-  }
-
-  .mini-game-description {
-    font-size: 1.2rem;
-    margin: 0 7%;
-  }
-
-  ol {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    padding-top: 0.5rem;
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-  }
-
-  .red-dice {
-    width: 18px;
-    height: 18px;
-    background-color: red;
-  }
-
-  .canvas {
-    width: 95%;
-    height: 15rem;
-  }
-
-  .button-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: -0.5rem auto 1rem auto;
-    column-gap: 1rem;
-  }
-
-  .load-button {
-    width: 10rem;
-    height: 2rem;
-    font-size: 1.1rem;
-  }
-
-  .save-button {
-    width: 10rem;
-    height: 2rem;
-    font-size: 1.1rem;
-  }
-
-  .reset-button {
-    width: 10rem;
-    height: 2rem;
-    font-size: 1.1rem;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .head-section {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin: 1rem 3% 2.5rem 3%;
-    padding: 0 0 1rem 0;
-  }
-
-  .welcome-div {
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo {
-    margin: 10rem 0 0 -50%;
-    width: 4rem;
-    border: 1px solid white;
-    position: absolute;
-  }
-
-  .headline {
-    width: 100%;
-    font-size: 1.3rem;
-    padding: 7%;
-    margin: 0 auto 5.5rem auto;
-  }
-
-  .decoration-img {
-    margin: 10rem -50% 0 0;
-    width: auto;
-    height: 3.5rem;
-    border-radius: 50%;
-    position: absolute;
-  }
-
-  .developer-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 1rem;
-    padding: 1rem 0;
-  }
-
-  .text-and-link-div {
-    width: 90%;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  .text {
-    font-size: 0.9rem;
-    padding: 0.5rem 7%;
-    line-height: 1.5rem;
-  }
-
-  .name {
-    font-size: 1.1rem;
-  }
-
-  .titel {
-    font-size: 1.1rem;
-  }
-
-  .developer-button {
-    font-size: 0.9rem;
-    width: 9.5rem;
-    height: 2.1rem;
-    margin: 0;
-  }
-
-  .icon {
-    width: 1.2rem;
-    height: auto;
-    margin-left: 0.3rem;
-  }
-
-  .developer-img {
-    margin: 1rem 0 0 0;
-    width: 12rem;
-    height: auto;
-  }
-
-  .mini-game-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 1rem;
-    margin: 2.5rem 3%;
-    padding: 2rem 1%;
-  }
-
-  .mini-game-headline {
-    font-size: 1.4rem;
-    padding: 0 3%;
-  }
-
-  .mini-game-description-headline {
-    font-size: 1.2rem;
-    margin: 0;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .red-dice-description {
-    width: 17px;
-    height: 17px;
-    background-color: red;
-  }
-
-  .goal-dice-description {
-    width: 16px;
-    height: 16px;
-    background-color: white;
-    border: 1px solid black;
-  }
-
-  .mini-game-description {
-    font-size: 1.1rem;
-    margin: 0 10%;
-  }
-
-  ol {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    padding-top: 0.5rem;
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-  }
-
-  .red-dice {
-    width: 17px;
-    height: 17px;
-    background-color: red;
-  }
-
-  .canvas {
-    width: 95%;
-    height: 10rem;
-  }
-
-  .button-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: -1rem auto 0 auto;
-    row-gap: 0.5rem;
-  }
-
-  .load-button {
-    width: 9rem;
-    height: 1.7rem;
-    font-size: 1rem;
-  }
-
-  .save-button {
-    width: 9rem;
-    height: 1.7rem;
-    font-size: 1rem;
-  }
-
-  .reset-button {
-    width: 9rem;
-    height: 1.7rem;
-    font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 300px) {
-  .head-section {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin: 1rem 3% 1.7rem 3%;
-    padding: 0 0 1rem 0;
-  }
-
-  .welcome-div {
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo {
-    margin: 7rem 0 0 -50%;
-    width: 3rem;
-    border: 1px solid white;
-    position: absolute;
-  }
-
-  .headline {
-    width: 100%;
-    font-size: 1rem;
-    padding: 5%;
-    margin: 0 auto 4rem auto;
-  }
-
-  .decoration-img {
-    margin: 7rem -50% 0 0;
-    width: auto;
-    height: 2.5rem;
-    border-radius: 50%;
-    position: absolute;
-  }
-
-  .developer-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 1rem;
-    padding: 1rem 0;
-  }
-
-  .text-and-link-div {
-    width: 90%;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  .text {
-    font-size: 0.8rem;
-    padding: 0.5rem 7%;
-    line-height: 1.5rem;
-  }
-
-  .name {
-    font-size: 1rem;
-  }
-
-  .titel {
-    font-size: 1rem;
-  }
-
-  .developer-button {
-    font-size: 0.8rem;
-    width: 9rem;
-    height: 2rem;
-    margin: 0;
-  }
-
-  .icon {
-    width: 1.1rem;
-    height: auto;
-    margin-left: 0.3rem;
-  }
-
-  .developer-img {
-    margin: 1rem 0 0 0;
-    width: 10rem;
-    height: auto;
-  }
-
-  .mini-game-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 1rem;
-    margin: 1.7rem 3%;
-    padding: 1.5rem 1%;
-  }
-
-  .mini-game-headline {
-    font-size: 1.3rem;
-  }
-
-  .mini-game-description-headline {
-    font-size: 1.1rem;
-    margin: 0 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-  }
-
-  .red-dice-description {
-    width: 15px;
-    height: 15px;
-    background-color: red;
-  }
-
-  .goal-dice-description {
-    width: 15px;
-    height: 15px;
-    background-color: white;
-    border: 1px solid black;
-  }
-
-  .mini-game-description {
-    font-size: 1rem;
-    margin: 0 15%;
-  }
-
-  ol {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    padding-top: 0.5rem;
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-  }
-
-  .red-dice {
-    width: 15px;
-    height: 15px;
-    background-color: red;
-  }
-
-  .canvas {
-    width: 95%;
-    height: 10rem;
-  }
-
-  .button-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: -1rem auto 0 auto;
-    row-gap: 0.5rem;
-  }
-
-  .load-button {
-    width: 8rem;
-    height: 1.6rem;
-    font-size: 0.9rem;
-  }
-
-  .save-button {
-    width: 8rem;
-    height: 1.6rem;
-    font-size: 0.9rem;
-  }
-
-  .reset-button {
-    width: 8rem;
-    height: 1.6rem;
-    font-size: 0.9rem;
-  }
 }
