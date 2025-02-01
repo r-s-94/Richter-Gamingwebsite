@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    margin: 2rem 5% 5rem 5%;
+    margin: 2rem 3.5% 5rem 3.5%;
     padding: 0 0 1rem 0;
   }
 
@@ -86,7 +86,7 @@
   /*  Schere Stein Papier Spiel*/
 
   .rock-paper-scissors-game-section {
-    margin: 1rem 5% 5rem 5%;
+    margin: 1rem 3.5% 5rem 3.5%;
     padding: 5rem 1%;
   }
 
@@ -401,7 +401,7 @@
     align-items: center;
     justify-content: center;
     row-gap: 1rem;
-    margin: 1rem 5% 5rem 5%;
+    margin: 1rem 3.5% 5rem 3.5%;
     padding: 5rem 1%;
   }
 
@@ -483,6 +483,41 @@
     height: 2.3rem;
     font-size: 1.3rem;
   }
+
+  .footer-section {
+    padding: 5rem 3.5% 3.5rem 3.5%;
+    margin: 0 3.5% 4rem 3.5%;
+  }
+
+  .impressum-div {
+    width: 95%;
+    margin-bottom: 0.5rem;
+    padding: 5rem 5% 5rem 43%;
+  }
+
+  .person-div {
+    font-size: 1.3rem;
+  }
+
+  .contact-div {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .copy-right {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .link {
+    font-size: 1.4rem;
+    color: #039be5;
+  }
+
+  .to-top {
+    font-size: 1.5em;
+    margin-top: 2rem;
+  }
 }
 
 @media screen and (max-width: 1700px) {
@@ -490,7 +525,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    margin: 2rem 5% 4.5rem 5%;
+    margin: 2rem 3% 4.5rem 3%;
     padding: 0 0 1rem 0;
   }
 
@@ -571,8 +606,10 @@
     border-width: 0.4rem;
   }
 
+  /*  Schere Stein Papier Spiel*/
+
   .rock-paper-scissors-game-section {
-    margin: 1rem 5% 4.5rem 5%;
+    margin: 1rem 3% 4.5rem 3%;
     padding: 4rem 1%;
   }
 
@@ -648,7 +685,6 @@
   .question-div {
     width: 60rem;
     height: 45vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -723,7 +759,6 @@
     align-items: center;
     margin: 0 auto;
     width: 60rem;
-
     height: 45vh;
     margin-bottom: 1rem;
   }
@@ -887,7 +922,7 @@
     align-items: center;
     justify-content: center;
     row-gap: 1rem;
-    margin: 1rem 5% 4.5rem 5%;
+    margin: 1rem 3% 4.5rem 3%;
     padding: 4rem 1%;
   }
 
@@ -970,6 +1005,41 @@
     height: 2.3rem;
     font-size: 1.3rem;
   }
+
+  .footer-section {
+    padding: 5rem 3% 3.5rem 3%;
+    margin: 0 3% 4rem 3%;
+  }
+
+  .impressum-div {
+    width: 95%;
+    margin-bottom: 0.5rem;
+    padding: 5rem 5% 5rem 43%;
+  }
+
+  .person-div {
+    font-size: 1.3rem;
+  }
+
+  .contact-div {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .copy-right {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .link {
+    font-size: 1.4rem;
+    color: #039be5;
+  }
+
+  .to-top {
+    font-size: 1.5em;
+    margin-top: 2rem;
+  }
 }
 
 @media screen and (max-width: 1400px) {
@@ -977,7 +1047,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    margin: 1.5rem 5% 4rem 5%;
+    margin: 1.5rem 3% 4rem 3%;
     padding: 0 0 1rem 0;
   }
 
@@ -1061,7 +1131,7 @@
   /*  Schere Stein Papier Spiel*/
 
   .rock-paper-scissors-game-section {
-    margin: 1rem 5% 4rem 5%;
+    margin: 1rem 3% 4rem 3%;
     padding: 3rem 1%;
   }
 
@@ -1374,7 +1444,7 @@
     align-items: center;
     justify-content: center;
     row-gap: 1rem;
-    margin: 1rem 5% 4rem 5%;
+    margin: 1rem 3% 4rem 3%;
     padding: 3rem 1%;
   }
 
@@ -1460,6 +1530,41 @@
     width: 11rem;
     height: 2.1rem;
     font-size: 1.2rem;
+  }
+
+  .footer-section {
+    padding: 5rem 3% 3.5rem 3%;
+    margin: 0 3% 4rem 3%;
+  }
+
+  .impressum-div {
+    width: 95%;
+    margin-bottom: 0.5rem;
+    padding: 4rem 5% 4rem 40%;
+  }
+
+  .person-div {
+    font-size: 1.2rem;
+  }
+
+  .contact-div {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .copy-right {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .link {
+    font-size: 1.4rem;
+    color: #039be5;
+  }
+
+  .to-top {
+    font-size: 1.5em;
+    margin-top: 2rem;
   }
 }
 
@@ -1947,6 +2052,41 @@
     width: 10rem;
     height: 2rem;
     font-size: 1.1rem;
+  }
+
+  .footer-section {
+    padding: 4rem 3% 3rem 3%;
+    margin: 0 3% 4rem 3%;
+  }
+
+  .impressum-div {
+    width: 95%;
+    margin-bottom: 0.5rem;
+    padding: 3rem 5% 3rem 37%;
+  }
+
+  .person-div {
+    font-size: 1.1rem;
+  }
+
+  .contact-div {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .copy-right {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .link {
+    font-size: 1.2rem;
+    color: #039be5;
+  }
+
+  .to-top {
+    font-size: 1.4em;
+    margin-top: 1.5rem;
   }
 }
 
@@ -2441,6 +2581,41 @@
     height: 1.7rem;
     font-size: 1rem;
   }
+
+  .footer-section {
+    padding: 3rem 3% 2.5rem 3%;
+    margin: 0 3% 3rem 3%;
+  }
+
+  .impressum-div {
+    width: 95%;
+    margin-bottom: 0.5rem;
+    padding: 2rem 5% 2rem 7%;
+  }
+
+  .person-div {
+    font-size: 1rem;
+  }
+
+  .contact-div {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+
+  .copy-right {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+
+  .link {
+    font-size: 1rem;
+    color: #039be5;
+  }
+
+  .to-top {
+    font-size: 1.2em;
+    margin-top: 1rem;
+  }
 }
 
 @media screen and (max-width: 300px) {
@@ -2934,5 +3109,40 @@
     width: 8rem;
     height: 1.6rem;
     font-size: 0.9rem;
+  }
+
+  .footer-section {
+    padding: 2rem 3%;
+    margin: 0 3% 2rem 3%;
+  }
+
+  .impressum-div {
+    width: 95%;
+    margin-bottom: 0.5rem;
+    padding: 1rem 3% 1rem 5%;
+  }
+
+  .person-div {
+    font-size: 0.8rem;
+  }
+
+  .contact-div {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .copy-right {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .link {
+    font-size: 0.9rem;
+    color: #039be5;
+  }
+
+  .to-top {
+    font-size: 1em;
+    margin: 0.5rem 0;
   }
 }
