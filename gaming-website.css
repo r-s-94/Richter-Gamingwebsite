@@ -103,110 +103,48 @@ body {
 
 .head-section {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.1);
+  background-image: url(./assets/file-XfwJ1K1vnPZ3SgcCjuZHFz.webp);
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 0.2rem;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  margin: 3rem 5rem 1rem 5rem;
-  padding: 0 0 1rem 0;
-}
-
-.welcome-div {
-  background-image: url(./assets/star-citizen-4768101_1920.jpg);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 3rem 0;
+  row-gap: 1rem;
+  margin: 3rem 5rem 1rem 5rem;
+  padding: 0 0 1rem 0;
+  height: 63rem;
 }
 
 .logo {
-  width: 12rem;
+  width: 10rem;
   height: auto;
   border-radius: 50%;
+  margin-bottom: 9rem;
+}
+
+.headline-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  opacity: 0.7;
+  width: 70rem;
+  border-radius: 0.2rem;
 }
 
 .headline {
-  font-size: 2.3rem;
+  font-size: 2.7rem;
   text-align: center;
-  color: white;
 }
 
 .decoration-img {
-  width: auto;
-  height: 8rem;
+  margin-bottom: 9rem;
+  width: 10rem;
+  height: auto;
   border-radius: 45%;
-}
-
-.developer-div {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  column-gap: 1rem;
-  padding: 1rem 0;
-}
-
-.text-and-link-div {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  row-gap: 1rem;
-  height: 100%;
-  margin-left: 13rem;
-}
-
-.text {
-  padding: 5rem 5rem 5rem 3rem;
-  text-decoration: left;
-  border-radius: 0.3rem;
-  background-color: white;
-  font-size: 1.5rem;
-  border-radius: 0.2rem;
-  line-height: 2rem;
-  border: 1px solid #bdbdbd;
-  border-radius: 0.2rem;
-}
-
-.name {
-  font-size: 1.7rem;
-  font-weight: bold;
-}
-
-.titel {
-  font-size: 1.7rem;
-  font-weight: bold;
-}
-
-/*&__link {
-  }*/
-
-.developer-button {
-  border: 0.1rem solid white;
-  background-color: #222222;
-  color: #80d8ff;
-  border-radius: 0.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.1rem;
-  width: 12rem;
-  height: 2.7rem;
-}
-
-.icon {
-  width: 1.5rem;
-  height: auto;
-  margin-left: 0.3rem;
-}
-
-.developer-img {
-  margin-left: 13rem;
-  width: 13rem;
-  height: auto;
-  border-radius: 0.2rem;
-  border: 0.3rem outset #e0e0e0;
 }
 
 /*  Schere Stein Papier */
@@ -587,7 +525,7 @@ body {
 
 /*  Würfellabyrinth */
 
-.mini-game-section {
+.würfel-labyrinth-section {
   margin: 1rem 5rem;
   padding: 3rem 0;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.1);
@@ -600,12 +538,12 @@ body {
   background-color: white;
 }
 
-.mini-game-headline {
+.würfel-labyrinth-headline {
   font-size: 1.7rem;
   text-align: center;
 }
 
-.mini-game-description-headline {
+.würfel-labyrinth-description-headline {
   font-size: 1.5rem;
   display: flex;
   justify-content: center;
@@ -626,7 +564,7 @@ body {
   border: 1px solid black;
 }
 
-.mini-game-description {
+.würfel-labyrinth-description {
   font-size: 1.3rem;
 }
 
@@ -675,6 +613,10 @@ li {
   margin-bottom: 2rem;
   padding: 2rem 0 2rem 40%;
   box-sizing: border-box;
+}
+
+.footer-section-headline {
+  font-size: 1.7rem;
 }
 
 .contact-div {
