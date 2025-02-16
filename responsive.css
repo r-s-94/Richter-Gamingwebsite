@@ -1240,7 +1240,7 @@
   .tic-tac-toe-game-question-event-div {
     width: 33rem;
     height: 33rem;
-    margin: 14.5rem auto 0 auto;
+    margin: 12.5rem auto 0 auto;
     font-size: 1.5rem;
   }
 
@@ -1320,7 +1320,7 @@
     width: 35rem;
     height: 7rem;
     font-size: 2.5rem;
-    margin-top: 4.5rem;
+    margin-top: 2.5rem;
   }
 
   .tic-tac-toe-game-main-playing-field {
@@ -3025,7 +3025,7 @@
   .tic-tac-toe-game-question-event-div {
     width: 13rem;
     height: 13rem;
-    margin: 7rem auto 0 auto;
+    margin: 6rem auto 0 auto;
     font-size: 0.9rem;
   }
 
@@ -3104,13 +3104,13 @@
     width: 13rem;
     height: 2.5rem;
     font-size: 1.3rem;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
   }
 
   .tic-tac-toe-game-main-playing-field {
     width: 13rem;
     height: 13rem;
-    margin: 2rem auto 0 auto;
+    margin: 0 auto;
   }
 
   .tic-tac-toe-game-playing-field {
