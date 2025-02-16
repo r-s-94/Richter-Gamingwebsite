@@ -91,31 +91,43 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: linear-gradient(
+  background-image: url(./assets/file-NkJHZuu3JWRA1bQvZeHyCG.webp);
+  background-position: center;
+
+  /*linear-gradient(
+      to right,
+      rgba(226, 228, 231, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(226, 228, 231, 0)
+    )*/
+
+  /*linear-gradient(
     to right,
     #e2e4e7,
     white,
     white,
     white,
-    #e2e4e7
+    #e2e4e7,
+    
   );
+  */
 }
 
 .head-section {
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.1);
-  background-image: url(./assets/file-XfwJ1K1vnPZ3SgcCjuZHFz.webp);
-  background-repeat: no-repeat;
-  background-position: center;
+  /*box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.1);*/
+  /*background-image: url(./assets/file-XfwJ1K1vnPZ3SgcCjuZHFz.webp);
+  background-position: center;*/
   border-radius: 0.2rem;
-  background-color: rgba(255, 255, 255, 1);
   box-sizing: border-box;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   row-gap: 1rem;
   margin: 3rem 5rem 1rem 5rem;
-  padding: 0 0 1rem 0;
-  height: 63rem;
+  padding: 0;
+  height: 30rem;
 }
 
 .logo {
@@ -145,6 +157,228 @@ body {
   width: 10rem;
   height: auto;
   border-radius: 45%;
+}
+
+/*  Tic-Tac-Toe-Game  */
+
+.tic-tac-toe-game-section {
+  background-image: url(./assets/file-7u8dKhAr8E9kBvayr3YtLJ.webp);
+  border-radius: 0.2rem;
+  margin: 1rem 5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tic-tac-toe-game-question-event-div {
+  position: absolute;
+  width: 30.5rem;
+  height: 30.5rem;
+  margin: 16.7rem auto 0 auto;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  margin-inline: auto;
+  font-size: 1.3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+}
+
+.tic-tac-toe-game-start-game-div,
+.tic-tac-toe-game-choice-player-computer-div,
+.tic-tac-toe-game-who-player-start-div,
+.tic-tac-toe-game-who-start-player-computer-div,
+.tic-tac-toe-game-game-winner-div,
+.tic-tac-toe-game-game-nobody-win-div,
+.tic-tac-toe-game-game-play-again-div,
+.tic-tac-toe-game-game-finish-div {
+  width: 75%;
+  height: 75%;
+  border-radius: 0.2rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tic-tac-toe-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  column-gap: 1rem;
+}
+
+.tic-tac-toe-game-player-and-computer-button-div,
+.tic-tac-toe-game-player-or-computer-button-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+}
+
+.tic-tac-toe-button {
+  /*border-top-color: #c0171a;
+  border-bottom-color: #ffde21;
+  border-left-color: green;
+  border-right-color: #24a0ed;*/
+  border-radius: 0.2rem;
+  border-style: solid;
+  border-width: 2.8px;
+  border-color: #e0e0e0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tic-tac-toe-button:hover {
+  cursor: pointer;
+}
+
+.tic-tac-toe-start-button {
+  width: 8rem;
+  height: 2.1rem;
+  font-size: 1.1rem;
+  background-image: linear-gradient(#c0171a, #ffde21, #52b640, #24a0ed);
+}
+
+.tic-tac-toe-game-player-vs-player-button {
+  width: 12rem;
+  height: 2rem;
+  color: white;
+  background-image: linear-gradient(#52b640, #24a0ed);
+  border-top-color: #52b640;
+  border-left-color: #52b640;
+  border-right-color: #24a0ed;
+  border-bottom-color: #24a0ed;
+}
+
+.tic-tac-toe-game-player-vs-computer-button {
+  width: 12rem;
+  height: 2rem;
+  background-image: linear-gradient(#ffde21, #c0171a);
+  border-top-color: #ffde21;
+  border-left-color: #ffde21;
+  border-right-color: #c0171a;
+  border-bottom-color: #c0171a;
+}
+
+.tic-tac-toe-x-button {
+  width: 3rem;
+  height: 2rem;
+  background-image: linear-gradient(#52b640, green);
+  color: white;
+  border-top-color: #52b640;
+  border-left-color: #52b640;
+  border-right-color: green;
+  border-bottom-color: green;
+}
+
+.tic-tac-toe-o-button {
+  width: 3rem;
+  height: 2rem;
+  background-image: linear-gradient(#24a0ed, #24a0ed, #006bb5);
+  color: white;
+  border-top-color: #24a0ed;
+  border-left-color: #24a0ed;
+  border-right-color: #006bb5;
+  border-bottom-color: #006bb5;
+}
+
+.tic-tac-toe-game-player-button {
+  width: 12rem;
+  height: 2rem;
+  background-image: linear-gradient(yellow, #ffde21);
+  border-top-color: yellow;
+  border-left-color: yellow;
+  border-right-color: #ffde21;
+  border-bottom-color: #ffde21;
+}
+
+.tic-tac-toe-game-computer-button {
+  width: 12rem;
+  height: 2rem;
+  background-image: linear-gradient(red, #c0171a);
+  color: white;
+  border-top-color: red;
+  border-left-color: red;
+  border-right-color: #c0171a;
+  border-bottom-color: #c0171a;
+}
+
+.tic-tac-toe-yes-button {
+  width: 3rem;
+  height: 2rem;
+  background-image: linear-gradient(#52b640, green);
+  color: white;
+  border-top-color: #52b640;
+  border-left-color: #52b640;
+  border-right-color: green;
+  border-bottom-color: green;
+}
+
+.tic-tac-toe-no-button {
+  width: 3rem;
+  height: 2rem;
+  background-image: linear-gradient(red, #c0171a);
+  color: white;
+  border-top-color: red;
+  border-left-color: red;
+  border-right-color: #c0171a;
+  border-bottom-color: #c0171a;
+}
+
+.tic-tac-toe-headline {
+  width: 40rem;
+  height: 7rem;
+  border-radius: 0.2rem;
+  font-size: 2.7rem;
+  margin: 0 auto 3rem auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tic-tac-toe-game-main-playing-field {
+  margin: 0 auto 5rem auto;
+  width: 30.4rem;
+  height: 30.4rem;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: white;
+}
+
+.tic-tac-toe-game-playing-field {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  border: 1px solid black;
+}
+
+.tic-tac-toe-game-playing-field:hover {
+  cursor: pointer;
+}
+
+.mark-winner-field-one {
+  background-color: #c0171a;
+}
+
+.mark-winner-field-two {
+  background-color: #ffde21;
+}
+
+.mark-winner-field-three {
+  background-color: #52b640;
 }
 
 /*  Schere Stein Papier */
@@ -252,7 +486,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.start-game-div,
+.rock-paper-scissors-start-game-div,
 .game-round-div {
   width: 75%;
   height: 75%;
@@ -263,7 +497,7 @@ body {
   border-radius: 0.2rem;
 }
 
-.start-game-button {
+.rock-paper-scissors-start-game-button {
   font-size: 0.9rem;
   width: 7rem;
   height: 1.7rem;
@@ -277,7 +511,7 @@ body {
 }
 
 .button-or-voice-div,
-.game-play-again-question-div {
+.game-play-again-question-main-div {
   width: 75%;
   height: 75%;
   display: flex;
@@ -321,7 +555,7 @@ body {
   border-radius: 0.2rem;
 }
 
-.game-play-again-question,
+.game-play-again-question-div,
 .game-play-again-standard-question {
   font-size: 1.5rem;
 }
@@ -543,8 +777,22 @@ body {
   text-align: center;
 }
 
+.würfel-labyrinth-img {
+  width: 40rem;
+  height: 15rem;
+}
+
 .würfel-labyrinth-description-headline {
   font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  row-gap: 0.5rem;
+}
+
+.red-dice-div,
+.goal-dice-div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -562,6 +810,13 @@ body {
   height: 15px;
   background-color: white;
   border: 1px solid black;
+}
+
+.red-dice-in-goal-dice-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
 }
 
 .würfel-labyrinth-description {

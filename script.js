@@ -1,3 +1,314 @@
+//  Tic Tac Toe Game
+
+let gameStateObject = {
+  solutionsArray: [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ],
+  players: { playerOne: "x", playerTwo: "o" },
+  occupiedBoard: [null, null, null, null, null, null, null, null, null],
+};
+
+const singlePlayBoard = document.getElementsByClassName(
+  "tic-tac-toe-game-playing-field"
+);
+const ticTacToeQuestionDiv = document.getElementsByClassName(
+  "tic-tac-toe-game-question-event-div"
+)[0];
+const startGameDiv = document.getElementsByClassName(
+  "tic-tac-toe-game-start-game-div"
+)[0];
+const choicePlayerComputerDiv = document.getElementsByClassName(
+  "tic-tac-toe-game-choice-player-computer-div"
+)[0];
+const whoPlayerStartDiv = document.getElementsByClassName(
+  "tic-tac-toe-game-who-player-start-div"
+)[0];
+const startPlayerOrComputerDiv = document.getElementsByClassName(
+  "tic-tac-toe-game-who-start-player-computer-div"
+)[0];
+const gameWinnerDiv = document.getElementsByClassName(
+  "tic-tac-toe-game-game-winner-div"
+)[0];
+const gameNobodyWinDiv = document.getElementsByClassName(
+  "tic-tac-toe-game-game-nobody-win-div"
+)[0];
+const gamePlayAgainDiv = document.getElementsByClassName(
+  "tic-tac-toe-game-game-play-again-div"
+)[0];
+const gameFinishDiv = document.getElementsByClassName(
+  "tic-tac-toe-game-game-finish-div"
+)[0];
+const showWinnerDOM = document.getElementsByClassName(
+  "tic-tac-toe-game-show-winner"
+)[0];
+
+let currentPlayer;
+let winnerPlayer = "";
+let winner = false;
+let playerPlayerMatch = false;
+let playerComputerMatch = false;
+let notInRow = false;
+
+showFirtsQuestion();
+
+function showFirtsQuestion() {
+  choicePlayerComputerDiv.classList.add("hidden");
+  whoPlayerStartDiv.classList.add("hidden");
+  startPlayerOrComputerDiv.classList.add("hidden");
+  gameWinnerDiv.classList.add("hidden");
+  gameNobodyWinDiv.classList.add("hidden");
+  gamePlayAgainDiv.classList.add("hidden");
+  gameFinishDiv.classList.add("hidden");
+}
+
+function askPlayOptions() {
+  startGameDiv.classList.add("hidden");
+  choicePlayerComputerDiv.classList.remove("hidden");
+}
+
+function startGameWith(gameChoice) {
+  if (gameChoice === "player") {
+    choicePlayerComputerDiv.classList.add("hidden");
+    whoPlayerStartDiv.classList.remove("hidden");
+  } else {
+    choicePlayerComputerDiv.classList.add("hidden");
+    startPlayerOrComputerDiv.classList.remove("hidden");
+  }
+}
+
+function playWithPlayers(playerChoice) {
+  if (playerChoice === "x") {
+    playerPlayerMatch = true;
+    currentPlayer = gameStateObject.players.playerOne;
+    whoPlayerStartDiv.classList.add("hidden");
+    ticTacToeQuestionDiv.classList.add("hidden");
+  } else {
+    playerPlayerMatch = true;
+    currentPlayer = gameStateObject.players.playerTwo;
+    whoPlayerStartDiv.classList.add("hidden");
+    ticTacToeQuestionDiv.classList.add("hidden");
+  }
+}
+
+function playingWithPlayerOrComputer(playerOrComputer) {
+  if (playerOrComputer === "player") {
+    playerComputerMatch = true;
+    currentPlayer = gameStateObject.players.playerOne;
+    choicePlayerComputerDiv.classList.add("hidden");
+    startPlayerOrComputerDiv.classList.add("hidden");
+    ticTacToeQuestionDiv.classList.add("hidden");
+  } else {
+    playerComputerMatch = true;
+    currentPlayer = gameStateObject.players.playerTwo;
+    choicePlayerComputerDiv.classList.add("hidden");
+    startPlayerOrComputerDiv.classList.add("hidden");
+    ticTacToeQuestionDiv.classList.add("hidden");
+    computerChoiceYourPlayingField();
+  }
+}
+
+function computerChoiceYourPlayingField() {
+  let freeBoardArray = [];
+
+  for (let index = 0; index < gameStateObject.occupiedBoard.length; index++) {
+    if (gameStateObject.occupiedBoard[index] === null) {
+      freeBoardArray.push(index);
+    }
+  }
+
+  const randomComputerPlayingFieldChoice =
+    freeBoardArray[Math.floor(Math.random() * freeBoardArray.length)];
+
+  updatePlayingField(randomComputerPlayingFieldChoice);
+}
+
+function checkPlayingFieldOccupied(playingFieldNumber) {
+  if (gameStateObject.occupiedBoard[playingFieldNumber] === null) {
+    updatePlayingField(playingFieldNumber);
+  }
+}
+
+function updatePlayingField(playingFieldNumber) {
+  singlePlayBoard[playingFieldNumber].innerHTML = currentPlayer;
+
+  gameStateObject.occupiedBoard[playingFieldNumber] = currentPlayer;
+
+  checkWinner(currentPlayer);
+
+  nobodyWin();
+
+  changeCurrentPlayer(currentPlayer);
+}
+
+function changeCurrentPlayer(player) {
+  if (player === "x") {
+    currentPlayer = gameStateObject.players.playerTwo;
+
+    if (playerComputerMatch) {
+      computerChoiceYourPlayingField();
+    }
+  } else {
+    currentPlayer = gameStateObject.players.playerOne;
+  }
+}
+
+function checkWinner() {
+  let solutionArray = 0;
+  const solutionArrays = gameStateObject.solutionsArray;
+
+  for (let index = 0; index < solutionArrays.length; index++) {
+    const board = gameStateObject.occupiedBoard;
+
+    if (
+      board[solutionArrays[index][0]] === board[solutionArrays[index][1]] &&
+      board[solutionArrays[index][1]] === board[solutionArrays[index][2]]
+    ) {
+      // null überprüfen
+      if (board[solutionArrays[index][0]] !== null) {
+        // welcher Spieler sitzt auf den Feldern?
+        solutionArray = index;
+        const markSolutionFieldOne = solutionArrays[solutionArray][0];
+        const markSolutionFieldTwo = solutionArrays[solutionArray][1];
+        const markSolutionFieldThree = solutionArrays[solutionArray][2];
+        winnerPlayer = board[solutionArrays[index][0]];
+        winner = true;
+        singlePlayBoard[markSolutionFieldOne].classList.add(
+          "mark-winner-field-one"
+        );
+        singlePlayBoard[markSolutionFieldTwo].classList.add(
+          "mark-winner-field-two"
+        );
+        singlePlayBoard[markSolutionFieldThree].classList.add(
+          "mark-winner-field-three"
+        );
+        setTimeout(showWinner, 2300);
+      }
+    }
+  }
+}
+
+/*function checkThree() {
+  gameStateObject.solutionsArray.forEach((solutionElement) => {
+    if (
+      solutionElement[0].player === gameStateObject.players.playerOne &&
+      solutionElement[1].player === gameStateObject.players.playerOne &&
+      solutionElement[2].player === gameStateObject.players.playerOne
+    ) {
+      
+    }
+
+    if (
+      solutionElement[0].player === gameStateObject.players.playerTwo &&
+      solutionElement[1].player === gameStateObject.players.playerTwo &&
+      solutionElement[2].player === gameStateObject.players.playerTwo
+    ) {
+      showWinner(currentPlayer);
+    }
+  });
+}*/
+
+function showWinner() {
+  showWinnerDOM.innerHTML = winnerPlayer;
+  gameWinnerDiv.classList.remove("hidden");
+  ticTacToeQuestionDiv.classList.remove("hidden");
+  setTimeout(hiddenWinner, 2300);
+}
+
+function nobodyWin() {
+  const findNotOccupiedBoard = gameStateObject.occupiedBoard.findIndex(
+    (notOccupiedBoard) => {
+      return notOccupiedBoard === null;
+    }
+  );
+
+  // gameStateObject.occupiedBoard.forEach((field) => {
+  //   if (field === null) x = false;
+  // });
+
+  /*for (let i = 0; i < gameStateObject.occupiedBoard.length; i++) {
+    if (gameStateObject.occupiedBoard[i] !== null) {
+      allPlayingFieldsOccupied = true;
+      break;
+    }
+  }*/
+
+  if (findNotOccupiedBoard === -1) {
+    gameStateObject.solutionsArray.forEach((solutionElement) => {
+      const board = gameStateObject.occupiedBoard;
+
+      if (
+        board[solutionElement[0]] !== board[solutionElement[1]] ||
+        board[solutionElement[1]] !== board[solutionElement[2]]
+      ) {
+        notInRow = true;
+
+        if (notInRow === true && winner === false) {
+          setTimeout(showNobodyWin, 2300);
+        }
+      }
+    });
+  }
+}
+
+function showNobodyWin() {
+  gameNobodyWinDiv.classList.remove("hidden");
+  ticTacToeQuestionDiv.classList.remove("hidden");
+  setTimeout(hiddenNoboyWin, 2500);
+}
+
+function hiddenWinner() {
+  for (let index = 0; index < singlePlayBoard.length; index++) {
+    singlePlayBoard[index].classList.remove("mark-winner-field-one");
+    singlePlayBoard[index].classList.remove("mark-winner-field-two");
+    singlePlayBoard[index].classList.remove("mark-winner-field-three");
+  }
+
+  gameWinnerDiv.classList.add("hidden");
+  setTimeout(gamePlayAgainQuestion, 500);
+}
+
+function hiddenNoboyWin() {
+  gameNobodyWinDiv.classList.add("hidden");
+  setTimeout(gamePlayAgainQuestion, 500);
+}
+
+function gamePlayAgainQuestion() {
+  gamePlayAgainDiv.classList.remove("hidden");
+}
+
+function playAgainTicTacToe(playAgainAnswer) {
+  if (playAgainAnswer === "yes") {
+    gamePlayAgainDiv.classList.add("hidden");
+    choicePlayerComputerDiv.classList.remove("hidden");
+    resetGameTicTacToe();
+  } else {
+    gamePlayAgainDiv.classList.add("hidden");
+    gameFinishDiv.classList.remove("hidden");
+  }
+}
+
+function resetGameTicTacToe() {
+  for (let index = 0; index < gameStateObject.occupiedBoard.length; index++) {
+    gameStateObject.occupiedBoard[index] = null;
+
+    document.getElementsByClassName("tic-tac-toe-game-playing-field")[
+      index
+    ].innerHTML = "";
+  }
+
+  playerPlayerMatch = false;
+  playerComputerMatch = false;
+  notInRow = false;
+  winner = false;
+}
+
 //  Schere Stein Papier Spiel
 
 const computerChoiceArray = ["Schere", "Stein", "Papier"];
@@ -8,19 +319,21 @@ const gameCharacterIMGArray = [
   "./assets/Papier.png",
 ];
 const questionDiv = document.getElementsByClassName("question-div")[0];
-const startGameDiv = document.getElementsByClassName("start-game-div")[0];
+const stonePaperScissorsStartGameDiv = document.getElementsByClassName(
+  "rock-paper-scissors-start-game-div"
+)[0];
 const buttonOrVoiceDiv = document.getElementsByClassName(
   "button-or-voice-div"
 )[0];
-const scissorsStonePaperButtonDiv = document.getElementsByClassName(
+const stonePaperScissorsButtonDiv = document.getElementsByClassName(
   "scissors-stone-paper-button-div"
 )[0];
 const voiceDiv = document.getElementsByClassName("voice-div")[0];
+const gamePlayAgainQuestionMainDiv = document.getElementsByClassName(
+  "game-play-again-question-main-div"
+)[0];
 const gamePlayAgainQuestionDiv = document.getElementsByClassName(
   "game-play-again-question-div"
-)[0];
-const gamePlayAgainQuestion = document.getElementsByClassName(
-  "game-play-again-question"
 )[0];
 const gamePlayAgainStandardQuestion = document.getElementsByClassName(
   "game-play-again-standard-question"
@@ -69,16 +382,16 @@ function showGameWithWhat() {
   evectDiv.classList.add("hidden");
   gameRoundDiv.classList.add("hidden");
   sequenceDiv.classList.add("hidden");
-  gamePlayAgainQuestionDiv.classList.add("hidden");
+  gamePlayAgainQuestionMainDiv.classList.add("hidden");
   gamePlayAgainQuestionButtonDiv.classList.add("hidden");
   sessionWinnerDiv.classList.add("hidden");
   buttonOrVoiceDiv.classList.add("hidden");
-  scissorsStonePaperButtonDiv.classList.add("hidden");
+  stonePaperScissorsButtonDiv.classList.add("hidden");
   voiceDiv.classList.add("hidden");
 }
 
 function showControlOptions() {
-  startGameDiv.classList.add("hidden");
+  stonePaperScissorsStartGameDiv.classList.add("hidden");
   buttonOrVoiceDiv.classList.remove("hidden");
 }
 
@@ -87,7 +400,7 @@ function buttonOrVoiceChoice(buttonOrVoice) {
   gamePlayAgainQuestionButtonDiv.classList.add("hidden");
 
   if (buttonOrVoice === "button") {
-    scissorsStonePaperButtonDiv.classList.remove("hidden");
+    stonePaperScissorsButtonDiv.classList.remove("hidden");
     questionDiv.classList.add("hidden");
   } else {
     voiceDiv.classList.remove("hidden");
@@ -192,7 +505,7 @@ function gameDuell() {
     computerObject.choice === "Stein" // "Stein"
   ) {
     computerObject.sessionWinnerName = "computer";
-    setTimeout(showSessionWinner, 3000);
+    setTimeout(showSessionWinnerRockPaperScissors, 3000);
   }
 
   if (
@@ -200,7 +513,7 @@ function gameDuell() {
     computerObject.choice === "Papier" // "Papier"
   ) {
     playerObject.sessionWinnerName = "player";
-    setTimeout(showSessionWinner, 3000);
+    setTimeout(showSessionWinnerRockPaperScissors, 3000);
   }
 
   if (
@@ -208,7 +521,7 @@ function gameDuell() {
     computerObject.choice === "Schere" // "Schere"
   ) {
     playerObject.sessionWinnerName = "player";
-    setTimeout(showSessionWinner, 3000);
+    setTimeout(showSessionWinnerRockPaperScissors, 3000);
   }
 
   if (
@@ -216,7 +529,7 @@ function gameDuell() {
     computerObject.choice === "Papier" // "Papier"
   ) {
     computerObject.sessionWinnerName = "computer";
-    setTimeout(showSessionWinner, 3000);
+    setTimeout(showSessionWinnerRockPaperScissors, 3000);
   }
 
   if (
@@ -224,7 +537,7 @@ function gameDuell() {
     computerObject.choice === "Stein" // "Stein"
   ) {
     playerObject.sessionWinnerName = "player";
-    setTimeout(showSessionWinner, 3000);
+    setTimeout(showSessionWinnerRockPaperScissors, 3000);
   }
 
   if (
@@ -232,7 +545,7 @@ function gameDuell() {
     computerObject.choice === "Schere" // "Schere"
   ) {
     computerObject.sessionWinnerName = "computer";
-    setTimeout(showSessionWinner, 3000);
+    setTimeout(showSessionWinnerRockPaperScissors, 3000);
   }
 
   if (playerObject.choice === computerObject.choice) {
@@ -240,7 +553,7 @@ function gameDuell() {
   }
 }
 
-function showSessionWinner() {
+function showSessionWinnerRockPaperScissors() {
   const sessionPlayerImg = document.getElementsByClassName("player-img")[0];
   sessionPlayerImg.remove();
 
@@ -253,15 +566,15 @@ function showSessionWinner() {
 
     if (playerObject.score === 3) {
       clearTimeout(controlTimeOut);
-      gamePlayAgainQuestion.innerHTML =
+      gamePlayAgainQuestionDiv.innerHTML =
         "Herzlichen Glückwunsch du hast das Spiel Gewonnen.";
 
-      setTimeout(showGamePlayAgainDiv, 2000);
+      setTimeout(showGamePlayAgainMainDiv, 2000);
     } else {
       sessionWinner.innerHTML = "Dieses Duell hast du gewonnen.";
       evectDiv.classList.remove("hidden");
       sessionWinnerDiv.classList.remove("hidden");
-      setTimeout(backToGame, 3000);
+      setTimeout(backToGameRockPaperScissors, 3000);
     }
   } else {
     computerObject.score = computerObject.score + 1;
@@ -269,14 +582,15 @@ function showSessionWinner() {
 
     if (computerObject.score === 3) {
       clearTimeout(controlTimeOut);
-      gamePlayAgainQuestion.innerHTML = "Der Computer hat das Spiel Gewonnen.";
+      gamePlayAgainQuestionDiv.innerHTML =
+        "Der Computer hat das Spiel Gewonnen.";
 
-      setTimeout(showGamePlayAgainDiv, 2000);
+      setTimeout(showGamePlayAgainMainDiv, 2000);
     } else {
       sessionWinner.innerHTML = "Dieses Duell hat der Computer gewonnen.";
       evectDiv.classList.remove("hidden");
       sessionWinnerDiv.classList.remove("hidden");
-      setTimeout(backToGame, 3000);
+      setTimeout(backToGameRockPaperScissors, 3000);
     }
   }
 }
@@ -292,10 +606,10 @@ function equalChoice() {
 
   sessionWinnerDiv.classList.remove("hidden");
   evectDiv.classList.remove("hidden");
-  setTimeout(backToGame, 3000);
+  setTimeout(backToGameRockPaperScissors, 3000);
 }
 
-function backToGame() {
+function backToGameRockPaperScissors() {
   playerVoiceChoice.innerHTML = "";
 
   playerObject.sessionWinnerName = "";
@@ -309,24 +623,24 @@ function backToGame() {
   evectDiv.classList.add("hidden");
 }
 
-function showGamePlayAgainDiv() {
+function showGamePlayAgainMainDiv() {
   gamePlayAgainStandardQuestion.innerHTML =
     "Möchtest du das Spiel weiter spielen?";
-  scissorsStonePaperButtonDiv.classList.add("hidden");
+  stonePaperScissorsButtonDiv.classList.add("hidden");
   voiceDiv.classList.add("hidden");
   questionDiv.classList.remove("hidden");
-  gamePlayAgainQuestionDiv.classList.remove("hidden");
+  gamePlayAgainQuestionMainDiv.classList.remove("hidden");
   gamePlayAgainQuestionButtonDiv.classList.remove("hidden");
 }
 
-function playAgain(answer) {
+function playAgainRockPaperScissors(answer) {
   if (answer === "ja") {
-    resetGame();
+    resetGameRockPaperScissors();
     gamePlayAgainQuestionButtonDiv.classList.add("hidden");
-    gamePlayAgainQuestionDiv.classList.add("hidden");
+    gamePlayAgainQuestionMainDiv.classList.add("hidden");
     buttonOrVoiceDiv.classList.remove("hidden");
   } else {
-    gamePlayAgainQuestion.innerHTML = "Das Spiel ist zu Ende.";
+    gamePlayAgainQuestionDiv.innerHTML = "Das Spiel ist zu Ende.";
     gamePlayAgainStandardQuestion.innerHTML = "";
     gamePlayAgainQuestionButtonDiv.classList.add("hidden");
   }
@@ -362,7 +676,7 @@ function showComputerCharacter() {
   }
 }
 
-function resetGame() {
+function resetGameRockPaperScissors() {
   computerObject = {
     sessionWinnerName: "",
     score: 0,

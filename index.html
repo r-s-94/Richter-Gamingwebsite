@@ -21,12 +21,156 @@
             Richter Gamingsoftware
           </h1>
         </div>
-
         <img
           src="./assets/file-8yGyKwtQyjcoDZFAVX4zb9.webp"
           alt=""
           class="decoration-img"
         />
+      </section>
+
+      <section class="tic-tac-toe-game-section">
+        <div class="tic-tac-toe-game-question-event-div">
+          <div class="tic-tac-toe-game-start-game-div">
+            <button
+              onclick="askPlayOptions()"
+              class="tic-tac-toe-button tic-tac-toe-start-button"
+            >
+              Spiel starten
+            </button>
+          </div>
+
+          <div class="tic-tac-toe-game-choice-player-computer-div">
+            Wie möchtest du spielen?
+            <div
+              class="tic-tac-toe-button-div tic-tac-toe-game-player-and-computer-button-div"
+            >
+              <button
+                onclick="startGameWith('player')"
+                class="tic-tac-toe-button tic-tac-toe-game-player-vs-player-button"
+              >
+                Spieler VS. Spieler
+              </button>
+              <button
+                onclick="startGameWith('computer')"
+                class="tic-tac-toe-button tic-tac-toe-game-player-vs-computer-button"
+              >
+                Spieler VS. Computer
+              </button>
+            </div>
+          </div>
+
+          <div class="tic-tac-toe-game-who-player-start-div">
+            Wähle deinen Spieler.
+            <div class="tic-tac-toe-button-div">
+              <button
+                onclick="playWithPlayers('x')"
+                class="tic-tac-toe-button tic-tac-toe-x-button"
+              >
+                X
+              </button>
+              <button
+                onclick="playWithPlayers('o')"
+                class="tic-tac-toe-button tic-tac-toe-o-button"
+              >
+                O
+              </button>
+            </div>
+          </div>
+
+          <div class="tic-tac-toe-game-who-start-player-computer-div">
+            Wer fängt, an du oder der Computer?
+            <div
+              class="tic-tac-toe-button-div tic-tac-toe-game-player-or-computer-button-div"
+            >
+              <button
+                onclick="playingWithPlayerOrComputer('player')"
+                class="tic-tac-toe-button tic-tac-toe-game-player-button"
+              >
+                Spieler
+              </button>
+              <button
+                onclick="playingWithPlayerOrComputer('computer')"
+                class="tic-tac-toe-button tic-tac-toe-game-computer-button"
+              >
+                Computer
+              </button>
+            </div>
+          </div>
+
+          <div class="tic-tac-toe-game-game-winner-div">
+            Herzlichen Glückwunsch
+            <span class="tic-tac-toe-game-show-winner"></span>, du hast
+            gewonnen.
+          </div>
+
+          <div class="tic-tac-toe-game-game-nobody-win-div">
+            Alle Felder sind belegt, niemand hat gewonnen.
+          </div>
+
+          <div class="tic-tac-toe-game-game-play-again-div">
+            Möchtest du weiter spielen?
+            <div class="tic-tac-toe-button-div">
+              <button
+                onclick="playAgainTicTacToe('yes')"
+                class="tic-tac-toe-button tic-tac-toe-yes-button"
+              >
+                ja
+              </button>
+              <button
+                onclick="playAgainTicTacToe('no')"
+                class="tic-tac-toe-button tic-tac-toe-no-button"
+              >
+                nein
+              </button>
+            </div>
+          </div>
+
+          <div class="tic-tac-toe-game-game-finish-div">
+            Das Spiel ist zu ende.
+          </div>
+        </div>
+
+        <h1 class="tic-tac-toe-headline">Tic Tac Toe Spiel</h1>
+        <div class="tic-tac-toe-game-main-playing-field">
+          <div
+            onclick="checkPlayingFieldOccupied(0)"
+            class="tic-tac-toe-game-playing-field"
+          ></div>
+          <div
+            onclick="checkPlayingFieldOccupied(1)"
+            class="tic-tac-toe-game-playing-field"
+          ></div>
+          <div
+            onclick="checkPlayingFieldOccupied(2)"
+            class="tic-tac-toe-game-playing-field"
+          ></div>
+
+          <div
+            onclick="checkPlayingFieldOccupied(3)"
+            class="tic-tac-toe-game-playing-field"
+          ></div>
+          <div
+            onclick="checkPlayingFieldOccupied(4)"
+            class="tic-tac-toe-game-playing-field"
+          ></div>
+          <div
+            onclick="checkPlayingFieldOccupied(5)"
+            class="tic-tac-toe-game-playing-field"
+          ></div>
+
+          <div
+            onclick="checkPlayingFieldOccupied(6)"
+            class="tic-tac-toe-game-playing-field"
+          ></div>
+          <div
+            onclick="checkPlayingFieldOccupied(7)"
+            class="tic-tac-toe-game-playing-field"
+          ></div>
+          <div
+            onclick="checkPlayingFieldOccupied(8)"
+            class="tic-tac-toe-game-playing-field"
+          ></div>
+        </div>
       </section>
 
       <section class="rock-paper-scissors-game-section">
@@ -64,10 +208,10 @@
         </div>
 
         <div class="question-div">
-          <div class="start-game-div">
+          <div class="rock-paper-scissors-start-game-div">
             <button
               onclick="showControlOptions()"
-              class="start-game-button button"
+              class="rock-paper-scissors-start-game-button button"
             >
               Spiel starten
             </button>
@@ -93,18 +237,18 @@
             </div>
           </div>
 
-          <div class="game-play-again-question-div">
-            <p class="game-play-again-question"></p>
+          <div class="game-play-again-question-main-div">
+            <p class="game-play-again-question-div"></p>
             <p class="game-play-again-standard-question"></p>
             <div class="game-play-again-question-button-div">
               <button
-                onclick="playAgain('ja')"
+                onclick="playAgainRockPaperScissors('ja')"
                 class="game-play-again-yes-button button"
               >
                 Ja
               </button>
               <button
-                onclick="playAgain('nein')"
+                onclick="playAgainRockPaperScissors('nein')"
                 class="game-play-again-no-button button"
               >
                 Nein
@@ -192,13 +336,23 @@
 
       <section id="projects" class="würfel-labyrinth-section">
         <h1 class="würfel-labyrinth-headline">Würfellabyrinth</h1>
+        <img
+          src="./assets/file-EWsHv6nzHDmq4cXSh2xFHB.webp"
+          class="würfel-labyrinth-img"
+          alt=""
+        />
         <div class="würfel-labyrinth-description-headline">
-          Roten Würfel
-          <div class="red-dice-description"></div>
-          Zielgebiet
-          <div class="goal-dice-description"></div>
-          =
-          <div class="focus-div">
+          <div class="red-dice-div">
+            Roter Würfel
+            <div class="red-dice-description"></div>
+          </div>
+
+          <div class="goal-dice-div">
+            Zielgebiet
+            <div class="goal-dice-description"></div>
+          </div>
+
+          <div class="red-dice-in-goal-dice-div">
             <div class="red-dice-description"></div>
             <span>&rarr;</span>
             <div class="goal-dice-description"></div>
@@ -261,7 +415,8 @@
 
     <script src="script.js"></script>
     <script>
-      //
+      /*
+       */
     </script>
   </body>
 </html>
